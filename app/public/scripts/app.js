@@ -1,9 +1,10 @@
 const d = document;
 
 // authentication
+const formLogin = d.getElementById('form_login');
 import {login} from "./modules/forms/login.js";
 import {signup} from "./modules/forms/signup.js";
-const formLogin = d.getElementById('form_login');
+
 const formSignup = d.getElementById('signup');
 if(formLogin) login(formLogin);
 if(formSignup) signup(formSignup);
