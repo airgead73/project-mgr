@@ -1,6 +1,6 @@
 # Express-Starter
 
-## v7 public read only
+## v2 public read only
 
 ### install
 
