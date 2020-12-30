@@ -1,0 +1,24 @@
+<section class="container">
+  <div class="row">
+    <div class="col-md-4 bg-secondary d-flex align-items-center justify-content-center">
+      <h1 class="text-center text-white">
+        {{title}}
+      </h1>
+      
+    </div>
+    <div class="col-md-8">
+      {{#each items}}
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{this.code}}</h5>
+            <p class="card-text">{{this.title}}</p>
+            <a href="/projects/{{this._id}}" class="btn btn-secondary">go to item</a>
+          </div>
+        </div>      
+
+      {{/each}}
+
+    </div>
+  </div>  
+</section>

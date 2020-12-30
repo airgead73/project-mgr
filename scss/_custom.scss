@@ -1,0 +1,36 @@
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+
+main > .container {
+  padding: 60px 15px 0;
+}
+
+form {
+  height: 100%;
+}
+
+#form_login {
+  width: 18rem;
+}
+
+[data-message='form_message'] {
+  display: none;
+}
+
+.container--form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+}
+
+@keyframes mymove {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+
