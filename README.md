@@ -1,6 +1,6 @@
 # Express-Starter
 
-## v6 switch to bootstrap 5
+## v1 switch to bootstrap 5
 
 ### install
 
