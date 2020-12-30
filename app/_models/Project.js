@@ -13,6 +13,14 @@ const ProjectSchema = new mongoose.Schema({
     maxlength: [20, 'Code should be less than 20 characters'],
     trim: true
   },
+  edition: {
+    type: Number,
+    min: 1,
+  },
+  client: {
+    type: String,
+    maxlength: [20, 'Code should be less than 20 characters'],
+  },
   desc: {
     type: String,
     maxlength: [500, 'Description should be less than 500 characters'],

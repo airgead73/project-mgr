@@ -88,7 +88,9 @@ exports.update_one = asyncHandler(async function(req, res, next) {
   const {
     title,
     code,
-    desc
+    desc,
+    edition,
+    client,
   } = req.body;
 
   const projectFields = {};
@@ -96,6 +98,8 @@ exports.update_one = asyncHandler(async function(req, res, next) {
   if(title) projectFields.title = title;
   if(code) projectFields.code = code;
   if(desc) projectFields.desc = desc;
+  if(edition) projectFields.edition = edition;
+  if(client) projectFields.client = client;
 
   // update project
   project = await Project.findByIdAndUpdate(req.params.projectID, { $set: projectFields }, { new: true });
