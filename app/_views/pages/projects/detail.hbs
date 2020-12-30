@@ -5,12 +5,24 @@
 </header>
 
 <section class="row mt-5" id="main_content">
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{project.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{project.code}}</h6>
-        <p class="card-text">{{project.desc}}</p>
-        <a href="/projects/{{project._id}}/items/add" class="card-link">add item</a>
-      </div>
-    </div>
+  <div class="col-md-12">
+
+        <div class="card mb-3">
+          <div class="card-header d-flex justify-content-between">
+            <h2 class="h4"><span class="badge bg-dark">{{project.code}}</span></h2>
+            <a href="/projects/update/{{project._id}}" class="btn btn-primary text-white">update</a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{project.title}}</h5>
+            <p class="card-text">{{project.desc}}</p>
+            
+          </div>
+          <div class="card-footer text-muted">
+            <a href="#" class="card-link">chapters</a>
+            <a href="#" class="card-link">photos</a>
+            <a href="#" class="card-link">figures</a>
+            <a href="#" class="card-link">features</a>
+          </div>
+        </div>        
+  </div>
 </section>
