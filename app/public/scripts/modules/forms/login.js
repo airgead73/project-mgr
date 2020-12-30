@@ -1,4 +1,4 @@
-import { displayFormMessage } from './handle_messages.js';
+import { displayFormMessage } from '../handle_messages.js';
 
 export function login(form) {
 

@@ -1,19 +1,18 @@
-<header class="row mt-3" id="main__header">
+{{!-- <header class="row mt-3" id="main__header">
   <section class="col-md-6">
     <a href="/projects/update/{{project._id}}" class="btn btn-outline-dark" title="add project">edit {{project.code}}</a>
   </section>
-</header>
+</header> --}}
 
 <section class="row mt-5" id="main_content">
   <div class="col-md-12">
-
         <div class="card mb-3">
           <div class="card-header d-flex justify-content-between">
             <h2 class="h4"><span class="badge bg-dark">{{project.code}}</span></h2>
             <a href="/projects/update/{{project._id}}" class="btn btn-primary text-white">update</a>
           </div>
           <div class="card-body">
-            <h5 class="card-title">{{project.title}}</h5>
+            <h5 class="card-title">{{project.title}} {{#if project.edition}}{{project.edition}}e{{/if}}</h5>
             <p class="card-text">{{project.desc}}</p>
             
           </div>

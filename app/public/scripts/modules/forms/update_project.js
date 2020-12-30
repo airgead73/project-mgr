@@ -1,25 +1,30 @@
-export function itemAdd(form) {
+export function updateProject(form) {
 
   const message = form.querySelector('[data-message="form_message"]');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    console.log('item add');
-
     // reset form
     message.style.display = null;
 
+    // identify project
+    const project = form.getAttribute('data-project')
+
     // get values
-    const title = form.title.value;
-    const project = form.getAttribute('data-project');
-    const desc = form.desc.value;
+    const updatedProject = {
+      title: form.title.value,
+      code: form.code.value,
+      desc: form.desc.value,
+      edition: form.edition.value,
+      client: form.client.value      
+    };  
 
     try {
 
-      const res = await fetch(`/api/projects/${project}/items`, {
-        method: 'POST',
-        body: JSON.stringify({ title, project, desc }),
+      const res = await fetch(`/api/projects/${project}`, {
+        method: 'PUT',
+        body: JSON.stringify(updatedProject),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -29,14 +34,13 @@ export function itemAdd(form) {
 
       const data = await res.json();
       const { success, errors } = data;
-
-      console.log(data);
+      
 
       if(!success) {
+        console.log('no success');
         message.classList.remove('alert-success');
         message.classList.add('alert-danger');
-        message.textContent = errors.msg || '';
-        
+        message.textContent = errors.msg || '';        
       }
 
       if(success) {
@@ -48,6 +52,7 @@ export function itemAdd(form) {
       console.error(err);
 
     }
+
     
   });
 

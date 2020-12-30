@@ -1,23 +1,31 @@
-import {login} from "./modules/login.js";
-import {signup} from "./modules/signup.js";
-import {projectAdd} from "./modules/project_add.js";
-import {itemAdd} from "./modules/item_add.js";
-import {projectUpdate} from "./modules/project_update.js";
-import {contentDelete} from "./modules/delete.js";
-
 const d = document;
+
+// authentication
+import {login} from "./modules/forms/login.js";
+import {signup} from "./modules/forms/signup.js";
 const formLogin = d.getElementById('form_login');
 const formSignup = d.getElementById('signup');
-const formProjectAdd = d.getElementById('form_project_add');
-const formProjectUpdate = d.getElementById('form_project_update');
-const formItemAdd = d.getElementById('form_item_add');
-const btnsDelete = d.querySelectorAll('[data-delete]');
-
 if(formLogin) login(formLogin);
 if(formSignup) signup(formSignup);
-if(formProjectAdd) projectAdd(formProjectAdd);
-if(formProjectUpdate) projectUpdate(formProjectUpdate);
-if(formItemAdd) itemAdd(formItemAdd);
+
+// add Project
+import {addProject} from "./modules/forms/add_project.js";
+const formAddProject = d.getElementById('form_add_project');
+if(formAddProject) addProject(formAddProject);
+
+// update Project
+import {updateProject} from "./modules/forms/update_project.js";
+const formUpdateProject = d.getElementById('form_update_project');
+if(formUpdateProject) updateProject(formUpdateProject);
+
+// add Item
+import {addItem} from "./modules/forms/add_item.js";
+const formAddItem = d.getElementById('form_add_item');
+if(formAddItem) addItem(formAddItem);
+
+// delete content
+import {contentDelete} from "./modules/forms/delete.js";
+const btnsDelete = d.querySelectorAll('[data-delete]');
 if(btnsDelete) contentDelete(btnsDelete);
 
 
