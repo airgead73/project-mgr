@@ -1,3 +1,5 @@
+import { sendData } from '../fetch/sendData.js';
+
 export function addProject(form) {
 
   const message = form.querySelector('[data-message="form_message"]');
@@ -9,45 +11,26 @@ export function addProject(form) {
     message.style.display = null;
 
     // get values
-    const newProject = {
-      title: form.title.value,
-      code: form.code.value,
-      desc: form.desc.value,
-      edition: form.edition.value,
-      client: form.client.value
-    };
+    // const newProject = {
+    //   title: form.title.value,
+    //   code: form.code.value,
+    //   desc: form.desc.value,
+    //   edition: form.edition.value,
+    //   client: form.client.value
+    // };
+    const newProject = new FormData(e.target);
 
-    try {
+    sendData('/api/projects', 'POST', newProject)
+      .then(data => {
+        console.log(data);
+        const { success, errors } = data;
 
-      const res = await fetch('/api/projects', {
-        method: 'POST',
-        body: JSON.stringify(newProject),
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+        if(success) {
+          location.assign('/projects');          
+        } else {
+          console.log(errors);
         }
-
       });
-
-      const data = await res.json();
-      const { success, errors } = data;
-
-      if(!success) {
-        message.classList.remove('alert-success');
-        message.classList.add('alert-danger');
-        message.textContent = errors.msg || '';
-        
-      }
-
-      if(success) {
-        location.assign('/projects');
-      }
-
-    } catch(err) {
-
-      console.error(err);
-
-    }
     
   });
 
