@@ -10,14 +10,6 @@ export function addProject(form) {
     // reset form
     message.style.display = null;
 
-    // get values
-    // const newProject = {
-    //   title: form.title.value,
-    //   code: form.code.value,
-    //   desc: form.desc.value,
-    //   edition: form.edition.value,
-    //   client: form.client.value
-    // };
     const newProject = new FormData(e.target);
 
     console.log(newProject);

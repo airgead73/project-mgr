@@ -27,22 +27,18 @@ const populate = [{path: 'items', select: 'title'}]
 projectsRouter.use('/:projectID/items', itemsRouter);
 projectsRouter.use('/:projectID/resources', resourcesRouter);
 
-//projectsRouter.use(upload.none());
-
-
-
 // routes
 projectsRouter
   .route('/')
   .get(handleQuery(Project, populate), read_all)
   .post(upload.none(), create)
-  .put(update_all)
+  .put(upload.none(), update_all)
   .delete(delete_all);
 
 projectsRouter
   .route('/:projectID')
   .get(read_one)
-  .put(update_one)
+  .put(upload.none(), update_one)
   .delete(delete_one);
 
 module.exports = {
