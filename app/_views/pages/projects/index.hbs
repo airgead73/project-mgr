@@ -1,0 +1,11 @@
+<section>
+  <h3>
+    {{title}}
+  </h3>
+    {{#each projects}}
+      <h5>{{this.title}}</h5>
+      <h6>{{this.code}}</h6>
+      <p>{{this.desc}}</p>            
+      <a href="/projects/{{this._id}}">go to project</a>
+    {{/each}}
+</section>
