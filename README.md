@@ -1,6 +1,6 @@
 # Express-Starter
 
-## v8 public read only no css framework
+## v3 public read only no css framework
 
 ### install
 
