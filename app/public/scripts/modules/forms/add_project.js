@@ -1,4 +1,4 @@
-import { sendData } from '../fetch/sendData.js';
+import { sendFormData } from '../fetch/sendFormData.js';
 
 export function addProject(form) {
 
@@ -20,13 +20,16 @@ export function addProject(form) {
     // };
     const newProject = new FormData(e.target);
 
-    sendData('/api/projects', 'POST', newProject)
+    console.log(newProject);
+
+    sendFormData('/api/projects', 'POST', newProject)
       .then(data => {
         console.log(data);
         const { success, errors } = data;
 
         if(success) {
-          location.assign('/projects');          
+          console.log('success');
+          form.reset();          
         } else {
           console.log(errors);
         }

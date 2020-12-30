@@ -1,4 +1,4 @@
-export async function sendData(_url, _method, _data) {
+export async function sendJsonData(_url, _method, _data) {
 
   console.log('post data');
 

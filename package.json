@@ -66,6 +66,7 @@
     "method-override": "^3.0.0",
     "moment": "^2.29.1",
     "mongoose": "^5.10.15",
+    "multer": "^1.4.2",
     "validator": "^13.5.2",
     "xss-clean": "^0.1.1"
   },
