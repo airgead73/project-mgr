@@ -1,0 +1,16 @@
+<header class="row mt-3" id="main__header">
+  <section class="col-md-6">
+    <a href="/projects/update/{{project._id}}" class="btn btn-outline-dark" title="add project">edit {{project.code}}</a>
+  </section>
+</header>
+
+<section class="row mt-5" id="main_content">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{project.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{project.code}}</h6>
+        <p class="card-text">{{project.desc}}</p>
+        <a href="/projects/{{project._id}}/items/add" class="card-link">add item</a>
+      </div>
+    </div>
+</section>

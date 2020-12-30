@@ -1,0 +1,37 @@
+form {
+  height: 100%;
+}
+
+#form_login {
+  width: 18rem;
+}
+
+[data-message='form_message'] {
+  display: none;
+}
+
+.container--form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+}
+
+#nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 16.6667%;
+  background-color: white;
+}
+
+.container--main,
+.container--header {
+  margin-left: 18%;
+}
+
+
+
+

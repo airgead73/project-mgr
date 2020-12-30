@@ -1,0 +1,28 @@
+<header class="row mt-3" id="main__header">
+  <section class="col-md-6">
+    <h1 class="h3">{{title}}</h1></section>
+  <section class="col-md-6 d-flex justify-content-end ">
+    <a href="/projects/add" class="btn btn-outline-dark" title="add project">new project +</a>
+  </section>
+</header>
+
+<section class="row mt-3" id="main_content">
+  <div class="col-md-12">
+      {{#each projects}}
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{this.code}}</h6>
+            <p class="card-text">{{this.desc}}</p>            
+            <a href="/projects/{{this._id}}" class="card-link">go to project</a>
+            <a href="/projects/update/{{this._id}}" class="card-link">update</a>
+            <button type="button" class="btn btn-link card-link" data-delete="projects" data-target="{{this._id}}">delete</button>
+          </div>
+        </div>  
+
+      {{/each}}    
+  </div>
+</section>
+
+

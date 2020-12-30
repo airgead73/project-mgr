@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+{{> _head}}
+
+<body class="d-flex flex-column h-100">
+
+  {{#if user}}
+
+  {{> _header}}
+  {{> _nav}}
+
+  {{/if}}
+  
+  
+  
+  <main class="container container--main">
+  {{{body}}}
+  </main>
+
+  {{#if user}}
+
+  {{> _footer}} 
+
+  {{/if}} 
+  
+  {{> _scripts}}
+</body>
+
+</html>

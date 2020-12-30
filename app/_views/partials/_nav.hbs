@@ -1,0 +1,32 @@
+<nav id="nav" class="bg-light">
+  <header class="nav__header mt-2">
+    <h1 class="h4 text-center">express-starter</h1>
+  </header>
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link{{#if active.about}} active{{/if}}" {{#if active.about}}aria-current="page" {{/if}}href="/about">about</a>
+    </li>    
+    <li class="nav-item">
+      <a class="nav-link{{#if active.contact}} active{{/if}}" {{#if active.contact}}aria-current="page" {{/if}}href="/contact">contact</a>
+    </li>  
+
+    <hr>
+
+    <li class="nav-item">
+      <a class="nav-link{{#if active.projects}} active{{/if}}" {{#if active.projects}}aria-current="page" {{/if}}href="/projects">projects</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link{{#if active.photos}} active{{/if}}" {{#if active.photos}}aria-current="page" {{/if}}href="/photos">photos</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link{{#if active.files}} active{{/if}}" {{#if active.files}}aria-current="page" {{/if}}href="/files">files</a>
+    </li>          
+
+
+  </ul>  
+
+</nav>
+
+

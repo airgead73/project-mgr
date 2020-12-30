@@ -1,0 +1,35 @@
+<header class="row mt-3" id="main__header">
+  <section class="col-md-6">
+    <h1 class="h3">projects</h1></section>  
+  <section class="col-md-6 d-flex justify-content-end">
+    <a href="/projects" class="btn btn-outline-dark" title="add project">back to projects</a>
+  </section>
+</header>
+
+<section class="row mt-5" id="main_content">
+  <div class="col-md-6 offset-md-3">
+    <form class="card border-dark mb-3" id="form_project_update" data-project="{{project._id}}">
+      <header class="card-header bg-transparent border-dark">
+        <legend class="text-right">update {{project.code}}</legend>
+        <div class="alert alert-danger text-center fixed-top" role="alert" data-message="form_message"></div>
+      </header>
+      <main class="card-body text-dark">
+        <div class="mb-3">
+          <label for="title" class="form-label">title</label>
+          <input type="text" class="form-control" name="title" id="title" value="{{project.title}}">
+        </div>
+        <div class="mb-3">
+          <label for="code" class="form-label">code</label>
+          <input type="text" class="form-control" name="code" id="code" value="{{project.code}}">
+        </div>
+        <div class="mb-3">
+          <label for="desc" class="form-label">description</label>
+          <input type="text" class="form-control" name="desc" id="desc" value="{{project.desc}}">
+        </div>
+      </main>
+      <footer class="card-footer bg-transparent border-dark text-right">
+        <button type="submit" class="btn btn-dark">submit</button>
+      </footer>
+    </form>
+  </div>
+</section>
