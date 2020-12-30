@@ -1,6 +1,8 @@
 <nav id="nav" class="bg-light">
   <header class="nav__header mt-2">
-    <h1 class="h4 text-center">express-starter</h1>
+    <h1 class="h5 text-center">
+      <a href="/" class="navbrand">project manager</a>
+    </h1>
   </header>
   <ul class="nav flex-column">
     <li class="nav-item">
@@ -15,6 +17,10 @@
     <li class="nav-item">
       <a class="nav-link{{#if active.projects}} active{{/if}}" {{#if active.projects}}aria-current="page" {{/if}}href="/projects">projects</a>
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link{{#if active.projects_add}} active{{/if}}" {{#if active.projects_add}}aria-current="page" {{/if}}href="/projects/add">add project</a>
+    </li>    
 
     <li class="nav-item">
       <a class="nav-link{{#if active.photos}} active{{/if}}" {{#if active.photos}}aria-current="page" {{/if}}href="/photos">photos</a>

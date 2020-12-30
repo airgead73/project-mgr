@@ -23,13 +23,17 @@ form {
   top: 0;
   bottom: 0;
   left: 0;
-  width: 16.6667%;
-  background-color: white;
+  width: 9%;
+  min-width: 200px;
 }
 
 .container--main,
 .container--header {
   margin-left: 18%;
+}
+
+.navbrand {
+  text-decoration: none;
 }
 
 

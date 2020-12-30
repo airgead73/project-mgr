@@ -36,7 +36,8 @@ exports.projects_add = asyncHandler(async function(req, res, next) {
     .status(200)
     .render('pages/projects/add', {
       success: true,
-      title: 'add project'
+      title: 'add project',
+      active: { projects_add: true },
     });
 
 });
