@@ -27296,7 +27296,7 @@ form {
   width: 18rem;
 }
 
-[data-message='form_message'] {
+[data-message='container'] {
   display: none;
 }
 
