@@ -1,54 +1,61 @@
 import { makeRequest } from '../fetch/makeRequest.js';
 
-export default function handleForm(_submitBtns) {
+export default function handleForm(_btns) {
 
-  const handleSubmit = async (_btn) => {
+  const handleClick = (_btn) => {
 
-    console.log('handle submit', _btn);
+    // get form attributes
+    const form = _btn.form;
+    const contentType = form.getAttribute('enctype');
+    const method = form.getAttribute('method');
+    const url = form.getAttribute('action');
+    const responseRedirect = form.getAttribute('target');
+    console.log(url);
 
-    const currentForm = document.getElementById(_btn.getAttribute('form'));
     const currentHeaders = new Headers();
-    const contentType = _btn.getAttribute('formenctype');
-    const url = _btn.getAttribute('formaction');
-    const method = _btn.getAttribute('formmethod');
-    const target = _btn.getAttribute('formtarget');
-    let data = null;
 
-    currentHeaders.append('Accept', 'application/json');
+    currentHeaders.append('Content-Type', contentType);
+    currentHeaders.append('Accept', contentType);
 
-    if(contentType === 'application/json') {
-      currentHeaders.append('Content-Type', contentType);
-    }
+    const body = {};
 
-    if(method === 'POST' || method === 'PUT') {
-      data = new FormData(currentForm);
-    }
+    let formElements = Array.from(form.elements);
 
-
-
-    const currentRequest = new Request(url, {
-      method: method,
-      headers: currentHeaders,
-      body: data
-
-
+    formElements = formElements.filter(el => {
+      if(el.hasAttribute('name')) {
+        return el
+      }
     });
 
+    formElements.forEach(el => {
+      const prop = el.getAttribute('name');
+      const value = form[prop].value;
+      body[prop] = value;
+    });
+
+    const stringified = JSON.stringify(body);
+
+    console.log(stringified);
 
 
+    // fetch data
+    fetch(url, {
+      method: 'POST',
+      headers: currentHeaders,
+      body: JSON.stringify(body)
+     
+    })
+      .then(response => response.json())
+      .then(data => console.log(data));
   }
 
-  _submitBtns.forEach(_btn => {
+  _btns.forEach(_btn => {
 
     _btn.addEventListener('click', (e) => {
       e.preventDefault();
-      handleSubmit(e.target);
+      handleClick(e.target);      
     });
 
   });
-
-
-  console.log('Handle Form');
-  makeRequest();
 
 }

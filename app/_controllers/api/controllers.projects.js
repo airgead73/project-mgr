@@ -10,6 +10,8 @@ const createError = require('http-errors');
 
 exports.create = asyncHandler(async function(req, res, next) {
 
+  console.log(req.body);
+
   const project = new Project(req.body);
 
   await project.save();
@@ -18,7 +20,7 @@ exports.create = asyncHandler(async function(req, res, next) {
     .status(200)
     .json({ 
       success: true, 
-      msg: 'POST: create project',
+      msg: `${project.title} has been added.`,
       project
     });
 

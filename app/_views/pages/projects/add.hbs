@@ -6,7 +6,15 @@
 
 <section class="row mt-5" id="main_content">
   <div class="col-md-6 offset-md-3">
-    <form class="card border-dark mb-3" id="form_add_project">
+    <form 
+      method="POST"
+      action="/api/projects" 
+      enctype="application/json" 
+      target="/projects"
+      class="card border-dark mb-3" 
+      id="form_add_project"
+      autocomplete="off"
+    >
       <header class="card-header bg-transparent border-dark">
         <legend class="text-right">{{title}}</legend>
         <div class="alert alert-danger text-center fixed-top" role="alert" data-message="form_message"></div>
@@ -34,15 +42,7 @@
         </div>
       </main>
       <footer class="card-footer bg-transparent border-dark text-right">
-        <button 
-          type="submit" 
-          form="form_add_project" 
-          formaction="/api/projects"
-          formmethod="POST"
-          formenctype="multipart/form-data"
-          formtarget="/projects"
-          class="btn btn-dark"
-        >submit</button>
+        <button type="submit" class="btn btn-dark">submit</button>
       </footer>
     </form>
   </div>
