@@ -27300,6 +27300,10 @@ form {
   display: none;
 }
 
+.alert-warning .btn-close {
+  display: none;
+}
+
 .container--form {
   display: flex;
   align-items: center;

@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const ProjectSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: [true, 'Add title'],
+    required: [true, 'Add title.'],
     maxlength: [100, 'Title should be less than 100 characters.'],
     trim: true
   },
   code: {
     type: String,
-    required: [true, 'Add code'],
-    maxlength: [20, 'Code should be less than 20 characters'],
+    required: [true, 'Add code.'],
+    maxlength: [20, 'Code should be less than 20 characters.'],
     trim: true
   },
   edition: {
@@ -19,11 +19,11 @@ const ProjectSchema = new mongoose.Schema({
   },
   client: {
     type: String,
-    maxlength: [20, 'Code should be less than 20 characters'],
+    maxlength: [20, 'Code should be less than 20 characters.'],
   },
   desc: {
     type: String,
-    maxlength: [500, 'Description should be less than 500 characters'],
+    maxlength: [500, 'Description should be less than 500 characters.'],
   },
   createdAt: {
     type: Date,

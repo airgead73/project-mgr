@@ -10,7 +10,7 @@ const errorValidation = (_err, _req, _res, _resWithJson) => {
   });
 
   return _res  
-    .status(err.status || 500)
+    .status(_err.status || 500)
     .json({
       success: false,
       name: _err.name,
@@ -83,20 +83,20 @@ const errorGeneral = (_err, _req, _res, _resWithJson) => {
 
 const handleError = async function(err, req, res, next) {
 
-  console.log(err);
+  console.log(err.name);
 
   const resWithJson = req.headers.accept === 'application/json' ? true : false;
   const name = err.name;
   const code = err.code;
 
   if(name === 'ValidationError') {
-    errorValidation(err, req, res, resWithJson);
+    return errorValidation(err, req, res, resWithJson);
   } else if(name === 'NotFoundError') {
-    errorNotFound(err, req, res, resWithJson);
+    return errorNotFound(err, req, res, resWithJson);
   } else if(name === 'Error') {
-    errorSystem(err, req, res, resWithJson);
+    return errorSystem(err, req, res, resWithJson);
   } else if(code === 11000) {
-    errorDuplicate(err, req, res, resWithJson);
+    return errorDuplicate(err, req, res, resWithJson);
   } else {
     return res  
       .status(err.status || 500)

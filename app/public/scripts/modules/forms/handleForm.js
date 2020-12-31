@@ -1,4 +1,4 @@
-import { showSuccess } from '../messages/show.js';
+import { showSuccess, showFailure } from '../messages/show.js';
 
 export default function handleForm(_btns) {
 
@@ -55,7 +55,7 @@ export default function handleForm(_btns) {
     })
       .then(response => response.json())
       .then(data => {
-        const { success, msg, errors } = data;
+        const { success, msg } = data;
         if(success) {
 
           if(method === 'PUT') {
@@ -67,7 +67,8 @@ export default function handleForm(_btns) {
 
         } else {
 
-          console.log(errors);
+          console.log(data.messages);
+          showFailure(messageContainer, data.messages);
 
         }
         
