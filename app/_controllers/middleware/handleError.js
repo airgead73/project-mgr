@@ -83,7 +83,7 @@ const errorGeneral = (_err, _req, _res, _resWithJson) => {
 
 const handleError = async function(err, req, res, next) {
 
-  console.log(err.name);
+  console.log(err);
 
   const resWithJson = req.headers.accept === 'application/json' ? true : false;
   const name = err.name;
