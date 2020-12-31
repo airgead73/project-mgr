@@ -3,8 +3,6 @@ const projectsRouter = Router();
 const { itemsRouter } = require('./routes.items');
 const { resourcesRouter } = require('./routes.resources');
 const Project = require('../../_models/Project');
-const multer = require('multer');
-const upload = multer();
 
 // controllers
 const {
@@ -31,14 +29,14 @@ projectsRouter.use('/:projectID/resources', resourcesRouter);
 projectsRouter
   .route('/')
   .get(handleQuery(Project, populate), read_all)
-  .post(upload.none(), create)
-  .put(upload.none(), update_all)
+  .post(create)
+  .put(update_all)
   .delete(delete_all);
 
 projectsRouter
   .route('/:projectID')
   .get(read_one)
-  .put(upload.none(), update_one)
+  .put(update_one)
   .delete(delete_one);
 
 module.exports = {
