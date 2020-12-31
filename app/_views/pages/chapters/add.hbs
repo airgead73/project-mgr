@@ -1,0 +1,44 @@
+<header class="row mt-3" id="main__header">
+  <section class="col-md-6">
+    <a href="/projects/{{project.id}}" class="btn btn-outline-dark" title="add project">back to projects</a>
+  </section>
+</header>
+
+<section class="row mt-5" id="main_content">
+  <div class="col-md-6 offset-md-3">
+    <form 
+      method="POST"
+      action="/api/projects/{{project.id}}/chapters" 
+      enctype="application/json" 
+      target="/projects/{{project.id}}/chapters"
+      class="card border-dark mb-3" 
+      id="form_add_chapter"
+      autocomplete="off"
+    >
+      <header class="card-header bg-transparent border-dark">
+        <legend class="text-right">{{title}}</legend>
+<div class="alert alert-warning alert-dismissible fade show" role="alert" data-message="container">
+  <p data-message="text"></p>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+      </header>
+      <main class="card-body text-dark">
+        <div class="mb-3">
+          <label for="number" class="form-label">number</label>
+          <input type="number" class="form-control" name="number" id="number">
+        </div>        
+        <div class="mb-3">
+          <label for="title" class="form-label">title</label>
+          <input type="text" class="form-control" name="title" id="title">
+        </div>
+        <div class="mb-3">
+          <label for="notes" class="form-label">notes</label>
+          <textarea type="text" class="form-control" name="notes" id="notes"></textarea>
+        </div>
+      </main>
+      <footer class="card-footer bg-transparent border-dark text-right">
+        <button type="submit" class="btn btn-dark">submit</button>
+      </footer>
+    </form>
+  </div>
+</section>

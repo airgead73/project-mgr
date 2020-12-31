@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const projectsRouter = Router();
+const { projectsRouter } = require('./routes.chapters');
 const { itemsRouter } = require('./routes.items');
 
 // models
@@ -21,6 +22,7 @@ const populate = [{ path: 'items', select: 'title' }];
 
 // nested routes
 projectsRouter.use('/:projectID/items', itemsRouter);
+projectsRouter.use('/:projectID/chapters', chaptersRouter);
 
 // routes
 projectsRouter
@@ -37,9 +39,7 @@ projectsRouter
 
 projectsRouter
   .route('/:projectID')
-  .get(projects_detail);  
-
-  
+  .get(projects_detail);    
 
 
 module.exports = {

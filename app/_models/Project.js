@@ -42,4 +42,11 @@ ProjectSchema.virtual('items', {
   justOne: false
 });
 
+ProjectSchema.virtual('chapters', {
+  ref: 'Chapter',
+  localField: '_id',
+  foreignField: 'project',
+  justOne: false
+});
+
 module.exports = mongoose.model('Project', ProjectSchema);

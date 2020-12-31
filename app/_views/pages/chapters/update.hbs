@@ -1,0 +1,46 @@
+<header class="row mt-3" id="main__header">
+  <section class="col-md-6">
+    <h1 class="h3">chapters</h1>
+  </section>
+  <section class="col-md-6 d-flex justify-content-end">
+    <a href="/projects" class="btn btn-outline-dark" title="add project">back to projects</a>
+  </section>
+</header>
+
+<section class="row mt-5" id="main_content">
+  <div class="col-md-6 offset-md-3">
+    <form 
+      method="PUT",
+      action="/api/chapters/{{chapter._id}}"
+      enctype="application/json"
+      target="/chapters/{{chapter._id}}"
+      class="card border-dark mb-3" 
+      id="form_update_chapter"
+      >
+      <header class="card-header bg-transparent border-dark">
+        <legend class="text-right">update {{chapter.code}}</legend>
+        <div class="alert alert-danger text-center fixed-top" role="alert" data-message="container">
+          <p data-message="text"></p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </header>
+      <main class="card-body text-dark">
+        <div class="mb-3">
+          <label for="number" class="form-label">number</label>
+          <input type="number" class="form-control" name="number" id="number" value="{{chapter.number}}">
+        </div>        
+        <div class="mb-3">
+          <label for="title" class="form-label">title</label>
+          <input type="text" class="form-control" name="title" id="title" value="{{chapter.title}}">
+        </div>
+        <div class="mb-3">
+          <label for="notes" class="form-label">notes</label>
+          <input type="text" class="form-control" name="notes" id="notes" value="{{chapter.notes}}">
+        </div>
+      </main>
+      <footer class="card-footer bg-transparent border-dark text-right">
+        <button type="submit" class="btn btn-dark">submit</button>
+      </footer>
+    </form>
+  </div>
+</section>

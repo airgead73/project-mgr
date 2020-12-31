@@ -1,0 +1,15 @@
+<section class="container">
+  <div class="row">
+    <div class="col-md-4 bg-secondary d-flex align-items-center justify-content-center">
+      <h3 class="text-center text-white">
+        Chapter {{chapter.number}}
+        <a href="/projects/{{project._id}}/chapters/update/{{chapter._id}}" class="btn btn-primary" title="edit chapter">edit</a>
+      </h3>
+      
+    </div>
+    <div class="col-md-8">
+      <h2>{{chapter.title}}</h2>
+      <p>{{chapter.desc}}</p>
+    </div>
+  </div>  
+</section>
