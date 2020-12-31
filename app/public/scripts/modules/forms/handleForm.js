@@ -46,7 +46,21 @@ export default function handleForm(_btns) {
      
     })
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => {
+        const { success, errors } = data;
+        if(success) {
+
+          if(method === 'PUT') {
+            location.assign(responseRedirect);
+          }
+
+        } else {
+
+          console.log(errors);
+          
+        }
+        
+      });
   }
 
   _btns.forEach(_btn => {
