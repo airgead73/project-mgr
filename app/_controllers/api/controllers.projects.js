@@ -110,7 +110,7 @@ exports.update_one = asyncHandler(async function(req, res, next) {
     .status(200)
     .json({ 
       success: true, 
-      msg: 'PUT: project updated',
+      msg: `${project.title} has been updated.`,
       project
     });   
 

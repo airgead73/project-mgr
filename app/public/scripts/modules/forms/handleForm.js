@@ -40,7 +40,7 @@ export default function handleForm(_btns) {
 
     // fetch data
     fetch(url, {
-      method: 'POST',
+      method: method,
       headers: currentHeaders,
       body: JSON.stringify(body)
      

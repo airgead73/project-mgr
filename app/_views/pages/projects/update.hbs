@@ -9,7 +9,14 @@
 
 <section class="row mt-5" id="main_content">
   <div class="col-md-6 offset-md-3">
-    <form class="card border-dark mb-3" id="form_update_project" data-project="{{project._id}}">
+    <form 
+      method="PUT",
+      action="/api/projects/{{project._id}}"
+      enctype="application/json"
+      target="/projects/{{project._id}}"
+      class="card border-dark mb-3" 
+      id="form_update_project"
+      >
       <header class="card-header bg-transparent border-dark">
         <legend class="text-right">update {{project.code}}</legend>
         <div class="alert alert-danger text-center fixed-top" role="alert" data-message="form_message"></div>
