@@ -1,32 +1,33 @@
 <section class="container">
   <div class="row">
     <div class="col-md-4 bg-secondary d-flex align-items-center justify-content-center">
-      <h3 class="text-center text-white">item</h3>      
+      <h3 class="text-center text-white">item</h3>
     </div>
     <div class="col-md-8">
- 
-        <form class="card border-dark mb-3" id="form_add_item"  data-project="{{projectID}}">  
-          <header class="card-header bg-transparent border-dark">
-            <legend class="text-right">add</legend>
-            <div class="alert alert-danger text-center fixed-top" role="alert" data-message="form_message"></div>
-          </header>
-          <main class="card-body text-dark">
-            <div class="mb-3">
-              <label for="title" class="form-label">title</label>
-              <input type="text" class="form-control" name="title" id="title">              
-            </div>
-            <div class="mb-3">
-              <label for="desc" class="form-label">description</label>
-              <input type="text" class="form-control" name="desc" id="desc">
-            </div>            
-          </main>
-          <footer class="card-footer bg-transparent border-dark text-right">
-            <button type="submit" class="btn btn-dark">submit</button>
-          </footer>
-        </form>
-  
-
-
+      <form 
+        method="POST" 
+        action="/api/projects/{{projectID}}/items"
+        data-project="{{projectID}}" 
+        class="card border-dark mb-3" 
+        id="form_add_item">
+        <header class="card-header bg-transparent border-dark">
+          <legend class="text-right">add</legend>
+          <div class="alert alert-danger text-center fixed-top" role="alert" data-message="form_message"></div>
+        </header>
+        <main class="card-body text-dark">
+          <div class="mb-3">
+            <label for="title" class="form-label">title</label>
+            <input type="text" class="form-control" name="title" id="title">
+          </div>
+          <div class="mb-3">
+            <label for="desc" class="form-label">description</label>
+            <input type="text" class="form-control" name="desc" id="desc">
+          </div>
+        </main>
+        <footer class="card-footer bg-transparent border-dark text-right">
+          <button type="submit" class="btn btn-dark">submit</button>
+        </footer>
+      </form>
     </div>
-  </div>  
+  </div>
 </section>

@@ -23,18 +23,26 @@
         <div class="mb-3">
           <label for="edition" class="form-label">edition</label>
           <input type="number" class="form-control" name="edition" id="edition">
-        </div>  
+        </div>
         <div class="mb-3">
           <label for="client" class="form-label">client</label>
           <input type="text" class="form-control" name="client" id="client">
-        </div>              
+        </div>
         <div class="mb-3">
           <label for="desc" class="form-label">description</label>
           <input type="text" class="form-control" name="desc" id="desc">
-        </div>       
+        </div>
       </main>
       <footer class="card-footer bg-transparent border-dark text-right">
-        <button type="submit" class="btn btn-dark">submit</button>
+        <button 
+          type="submit" 
+          form="form_add_project" 
+          formaction="/api/projects"
+          formmethod="POST"
+          formenctype="multipart/form-data"
+          formtarget="/projects"
+          class="btn btn-dark"
+        >submit</button>
       </footer>
     </form>
   </div>
