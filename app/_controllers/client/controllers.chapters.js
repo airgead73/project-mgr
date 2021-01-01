@@ -1,5 +1,6 @@
 const asyncHandler = require('../middleware/handleAsync');
 const Chapter = require('../../_models/Chapter');
+const Project = require('../../_models/Project');
 
  /**
  * @route   GET /
@@ -10,14 +11,16 @@ const Chapter = require('../../_models/Chapter');
 exports.chapters_get = asyncHandler(async function(req, res, next) {
 
   const { success, count, data } = res.results;
+  const project = await Project.findById(req.params.projectID);
 
   return res
     .status(200)
     .render('pages/chapters/index', {
       success: success,
-      title: 'chapters',
+      title: `${project.code}: chapters`,
       active: { chapters: true },
       count: count,
+      project: project,
       chapters: data,
 
     });
@@ -32,12 +35,15 @@ exports.chapters_get = asyncHandler(async function(req, res, next) {
 
 exports.chapters_add = asyncHandler(async function(req, res, next) {
 
+  const project = await Project.findById(req.params.projectID);
+
   return res
     .status(200)
     .render('pages/chapters/add', {
       success: true,
       title: 'add chapter',
       active: { chapters_add: true },
+      project
     });
 
 });

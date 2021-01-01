@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const projectsRouter = Router();
-const { projectsRouter } = require('./routes.chapters');
+const { chaptersRouter } = require('./routes.chapters');
 const { itemsRouter } = require('./routes.items');
 
 // models

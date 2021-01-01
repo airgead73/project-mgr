@@ -1,28 +1,37 @@
 <header class="row mt-3" id="main__header">
   <section class="col-md-6">
-    <h1 class="h3">{{title}}</h1></section>
+    <h1 class="h5">{{title}}</h1></section>
   <section class="col-md-6 d-flex justify-content-end ">
-    <a href="/projects/{{project.id}}/chapters/add" class="btn btn-outline-dark" title="add chapter">new chapter +</a>
+    <a href="/projects/{{project._id}}/chapters/add" class="btn btn-link btn-sm" title="add chapter">new chapter +</a>
   </section>
 </header>
 
 <section class="row mt-3" id="main_content">
-  <div class="col-md-12">
-      {{#each chapters}}
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">title</th>
+      <th scope="col" colspan="2">notes</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each chapters}}
+    <tr>
+      <td scope="row">{{this.number}}</td>
+      <td>
+        <a href="/projects/{{project}}/chapters/{{this._id}}" class="card-link">{{this.title}}</a>        
+      </td>
+      <td>{{this.notes}}</td>
+      <td>        
+        <a href="/chapters/update/{{this._id}}" class="card-link">update</a>
+        <button class="btn btn-link card-link" data-delete="items" data-target="{{this._id}}">delete</button>
+      </td>
+    </tr>
+  {{/each}}  
+  </tbody>
+  </table>
 
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Ch {{this.number}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{this.title}}</h6>
-            <p class="card-text">{{this.notes}}</p>            
-            <a href="/projects/{{this._id}}" class="card-link">go to project</a>
-            <a href="/chapters/update/{{this._id}}" class="card-link">update</a>
-            <button class="btn btn-link card-link" data-delete="items" data-target="{{this._id}}">delete</button>
-          </div>
-        </div>  
-
-      {{/each}}    
-  </div>
 </section>
 
 
