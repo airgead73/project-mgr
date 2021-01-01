@@ -1,6 +1,6 @@
 # Express-Starter
 
-## v7 add chapters 
+## v8 add photo controllers and cloudinary config
 
 ### install
 
