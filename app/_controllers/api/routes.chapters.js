@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const chaptersRouter = Router({ mergeParams: true });
-const Chapter = require('../../_models/Chapter');
+const milestonesRouter = Router({ mergeParams: true });
+const Milestone = require('../../_models/Milestone');
 
 // controller
 const {
@@ -11,7 +11,7 @@ const {
   update_all,
   delete_one,
   delete_all
-} = require('./controllers.chapters');
+} = require('./controllers.milestones');
 
 // middleware
 const handleQuery = require('../middleware/handleQuery');
@@ -22,19 +22,19 @@ populate = [{path: 'project', select: 'title'}]
 
 // routes
 
-chaptersRouter
+milestonesRouter
   .route('/')
-  .get(handleQuery(Chapter, populate), read_all)
+  .get(handleQuery(Milestone, populate), read_all)
   .post(create)
   .put(update_all)
   .delete(delete_all);
 
-chaptersRouter
-  .route('/:chapterID')
+milestonesRouter
+  .route('/:milestoneID')
   .get(read_one)
   .put(update_one)
   .delete(delete_one);
 
 module.exports = {
-  chaptersRouter,
+  milestonesRouter,
 };

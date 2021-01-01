@@ -35,15 +35,15 @@ const ProjectSchema = new mongoose.Schema({
 });
 
 // Reverse populate with virtuals
-ProjectSchema.virtual('items', {
-  ref: 'Item',
+ProjectSchema.virtual('chapters', {
+  ref: 'Chapter',
   localField: '_id',
   foreignField: 'project',
   justOne: false
 });
 
-ProjectSchema.virtual('chapters', {
-  ref: 'Chapter',
+ProjectSchema.virtual('milestones', {
+  ref: 'Milestone',
   localField: '_id',
   foreignField: 'project',
   justOne: false
