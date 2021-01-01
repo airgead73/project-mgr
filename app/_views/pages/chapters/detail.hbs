@@ -1,15 +1,20 @@
-<section class="container">
-  <div class="row">
-    <div class="col-md-4 bg-secondary d-flex align-items-center justify-content-center">
-      <h3 class="text-center text-white">
-        Chapter {{chapter.number}}
-        <a href="/projects/{{project._id}}/chapters/update/{{chapter._id}}" class="btn btn-primary" title="edit chapter">edit</a>
-      </h3>
-      
+<section class="row mt-5" id="main_content">
+  <div class="col-md-12">
+    <div class="card mb-3">
+      <div class="card-header d-flex justify-content-between">
+        <h2 class="h4"><span class="badge bg-dark">Chapter {{chapter.number}}</span></h2>
+        <a href="/chapters/update/{{chapter._id}}" class="btn btn-primary text-white">update</a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{chapter.title}}</h5>
+        <p class="card-text">{{chapter.desc}}</p>
+
+      </div>
+      <div class="card-footer text-muted">
+        <a href="#" class="card-link">photos</a>
+        <a href="#" class="card-link">figures</a>
+        <a href="#" class="card-link">features</a>
+      </div>
     </div>
-    <div class="col-md-8">
-      <h2>{{chapter.title}}</h2>
-      <p>{{chapter.desc}}</p>
-    </div>
-  </div>  
+  </div>
 </section>

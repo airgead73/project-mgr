@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const projectsRouter = Router();
 const { chaptersRouter } = require('./routes.chapters');
-const { itemsRouter } = require('./routes.items');
+const { milestonesRouter } = require('./routes.milestones');
 
 // models
 const Project = require('../../_models/Project');
@@ -18,11 +18,14 @@ const {
 const handleQuery = require('../middleware/handleQuery');
 
 // populate options
-const populate = [{ path: 'items', select: 'title' }];
+const populate = [
+  { path: 'items', select: 'title' },
+  {path: 'milestones', select: 'date, title'}
+];
 
 // nested routes
-projectsRouter.use('/:projectID/items', itemsRouter);
 projectsRouter.use('/:projectID/chapters', chaptersRouter);
+projectsRouter.use('/:projectID/milestones', milestonesRouter);
 
 // routes
 projectsRouter
