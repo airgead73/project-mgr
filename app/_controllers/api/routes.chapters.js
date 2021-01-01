@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const chaptersRouter = Router({ mergeParams: true });
 const Chapter = require('../../_models/Chapter');
+const { photosRouter } = require('./routes.photos');
 
 // controller
 const {
@@ -18,10 +19,12 @@ const handleQuery = require('../middleware/handleQuery');
 const { validationRules, validate } = require('../middleware/handleValidation');
 
 // populate options
-populate = [{path: 'project', select: 'title'}]
+populate = [{path: 'project', select: 'title'}];
+
+// nested routes
+chaptersRouter.use('/:chapterID/photos', photosRouter);
 
 // routes
-
 chaptersRouter
   .route('/')
   .get(handleQuery(Chapter, populate), read_all)
