@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { cloudinary } = require('../config/cloudinary');
 
-const PhotoSchema = new mongoose.Schema({
+const FigureSchema = new mongoose.Schema({
   number: {
     type: Number,
     min: 1,
@@ -82,7 +82,7 @@ const PhotoSchema = new mongoose.Schema({
   }
 });
 
-PhotoSchema.pre('save', function(next) {
+FigureSchema.pre('save', function(next) {
 
   const getOrienation = function(w, h) {
 
@@ -102,7 +102,7 @@ PhotoSchema.pre('save', function(next) {
 
 });
 
-PhotoSchema.pre('remove', { document: true }, function(next) {
+FigureSchema.pre('remove', { document: true }, function(next) {
 
   console.log('delete from cloudinary');
 
@@ -114,4 +114,4 @@ PhotoSchema.pre('remove', { document: true }, function(next) {
 
 });
 
-module.exports = mongoose.model('Photo', PhotoSchema);
+module.exports = mongoose.model('Figure', FigureSchema);

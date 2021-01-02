@@ -7,10 +7,11 @@ const uploadCloud = async function(req, res, next) {
 
   const project = await Project.findById(req.params.projectID);
   const chapter = await Chapter.findById(req.params.chapterID);
+  const type = req.path.includes('photo') ? 'photo' : 'figure';
 
   const cloudFile = await cloudinary.uploader.upload('uploads/temp', {
-    folder: `projects/${project.code}/ch_${chapter.number}/`,
-    tags: 'photos'
+    folder: `projects/${project.code}/ch_${chapter.number}/${type}`,
+    tags: 'images'
   });
 
   console.log('upload to cloud');

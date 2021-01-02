@@ -1,32 +1,32 @@
 const asyncHandler = require('../middleware/handleAsync');
-const Photo = require('../../_models/Photo');
+const Figure = require('../../_models/Figure');
 const createError = require('http-errors');
 
 /**
  * @route   POST /
- * @desc    create photo
+ * @desc    create figure
  * @access  private
  */
 
 exports.create = asyncHandler(async function(req, res, next) {
 
-  const photo = new Photo(res.imageData);
+  const figure = new Figure(res.figureData);
 
-  await photo.save();
+  await figure.save();
 
   return res
     .status(200)
     .json({ 
       success: true, 
-      msg: `Photo ${photo.number_ch}.${photo.number} added.`,
-      photo
+      msg: `Figure ${figure.number_ch}.${figure.number} added.`,
+      figure
     });
 
 });
 
  /**
  * @route   GET /
- * @desc    read all photos
+ * @desc    read all figures
  * @access  private
  */
 
@@ -39,33 +39,33 @@ exports.read_all = asyncHandler(async function(req, res, next) {
     .json({ 
       success: success,
       count: count,
-      message: count > 0 ? `GET: ${count} found`: 'No photos found.',
-      photos: data
+      message: count > 0 ? `GET: ${count} found`: 'No figures found.',
+      figures: data
     });  
 
 }); 
 
 /**
- * @route   GET /:photoID
- * @desc    read one photo
+ * @route   GET /:figureID
+ * @desc    read one figure
  * @access  private
  */
 
 exports.read_one = asyncHandler(async function(req, res, next) {
 
-  const photo = await Photo.findById(req.params.photoID).populate({
+  const figure = await Figure.findById(req.params.figureID).populate({
     path: 'chapter',
     select: 'code'
   });
 
-  if(!photo) return next(createError(404, 'photo not found.'));
+  if(!figure) return next(createError(404, 'figure not found.'));
 
   return res
     .status(200)
     .json({ 
       success: true, 
       msg: 'GET: read one chapter',
-      photo
+      figure
     });  
 
 }); 
