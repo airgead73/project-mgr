@@ -1,0 +1,50 @@
+<header class="row mt-3" id="main__header">
+  <section class="col-md-6">
+    <h1 class="h3">chapters</h1>
+  </section>
+  <section class="col-md-6 d-flex justify-content-end">
+    <a href="/chapters/{{chapter._id}}" class="btn btn-outline-dark" title="add project">back to chapter</a>
+  </section>
+</header>
+
+<section class="row mt-5" id="main_content">
+  <div class="col-md-6 offset-md-3">
+    <form 
+      method="PUT",
+      action="/api/photos/{{photo._id}}"
+      enctype="multipart/form-data"
+      target="/photos/{{photo._id}}"
+      class="card border-dark mb-3" 
+      id="form_update_chapter"
+      >
+      <header class="card-header bg-transparent border-dark">
+        <legend class="text-right">update {{photo.number_ch}}.{{photo.number}}</legend>
+        <div class="alert alert-danger text-center fixed-top" role="alert" data-message="container">
+          <p data-message="text"></p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </header>
+      <main class="card-body text-dark">
+        <div class="mb-3">
+          <label for="number_ch" class="form-label">ch number_ch</label>
+          <input type="number_ch" class="form-control" name="number_ch" id="number_ch" value="{{photo.number_ch}}">
+        </div>
+        <div class="mb-3">
+          <label for="number" class="form-label">photo number</label>
+          <input type="number" class="form-control" name="number" id="number" value="{{photo.number}}">
+        </div>                 
+        <div class="mb-3">
+          <label for="caption" class="form-label">value</label>
+          <input type="text" class="form-control" name="caption" id="caption" value="{{photo.caption}}">
+        </div>
+        <div class="mb-3">
+          <label for="new_image" class="form-label">add image file</label>
+          <input class="form-control" type="file" id="new_image" name="new_image">
+        </div> 
+      </main>
+      <footer class="card-footer bg-transparent border-dark text-right">
+        <button type="submit" class="btn btn-dark">submit</button>
+      </footer>
+    </form>
+  </div>
+</section>
