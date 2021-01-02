@@ -27662,3 +27662,8 @@ form {
   line-height: 1;
   width: auto;
 }
+
+.img-thumbnail {
+  height: 100px;
+  width: auto;
+}

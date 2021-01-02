@@ -12,6 +12,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col"></th>
       <th scope="col">caption</th>
       <th scope="col">vendor</th>
       <th scope="col">credit</th>
@@ -21,14 +22,17 @@
   <tbody>
   {{#each photos}}
     <tr>
-      <td scope="row">{{this.number_ch}}.{{this.number}}</td>
-      <td>
-        <a href="/photos/{{this._id}}" class="card-link">{{this.caption}}</a>        
+      <td scope="row">
+        <a href="/photos/{{this._id}}" class="card-link">{{this.number_ch}}.{{this.number}}</a>
       </td>
+      <td>
+        <img src="{{this.url}}" alt="" class="img-thumbnail">
+      </td>
+      <td>{{this.caption}}</td>
       <td>{{this.vendor}}</td>
       <td>{{this.credit}}</td>
       <td>{{this.notes}}</td>
-      <td>        
+      <td class="text-end">        
         <a href="/photos/update/{{this._id}}" class="card-link">update</a>
         <button class="btn btn-link card-link" data-delete="items" data-target="{{this._id}}">delete</button>
       </td>
