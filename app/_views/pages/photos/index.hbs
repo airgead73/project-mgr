@@ -1,6 +1,6 @@
 <header class="row mt-3" id="main__header">
   <section class="col-md-6">
-    <a href="/projects/{{project._id}}/chapters/{{chapter._id}}/photos" class="btn btn-dark btn-sm" title="add chapter">new photo +</a>
+    <a href="/projects/{{project._id}}/chapters/{{chapter._id}}/photos/add" class="btn btn-dark btn-sm" title="add chapter">new photo +</a>
   </section>
   <section class="col-md-6 d-flex justify-content-end ">
     <h1 class="h5">{{title}}</h1>
@@ -12,7 +12,9 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">title</th>
+      <th scope="col">caption</th>
+      <th scope="col">vendor</th>
+      <th scope="col">credit</th>
       <th scope="col" colspan="2">notes</th>
     </tr>
   </thead>
@@ -21,8 +23,10 @@
     <tr>
       <td scope="row">{{this.number_ch}}.{{this.number}}</td>
       <td>
-        <a href="/projects/{{project}}/chapters/{{this._id}}" class="card-link">{{this.caption}}</a>        
+        <a href="/photos/{{this._id}}" class="card-link">{{this.caption}}</a>        
       </td>
+      <td>{{this.vendor}}</td>
+      <td>{{this.credit}}</td>
       <td>{{this.notes}}</td>
       <td>        
         <a href="/photos/update/{{this._id}}" class="card-link">update</a>

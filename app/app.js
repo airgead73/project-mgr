@@ -33,6 +33,14 @@ connectDB();
  * @desc  SECURITY
  */
 app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    "default-src": ["'self'"],
+    "img-src": ["'self'", "*.cloudinary.com"],
+    "font-src": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+    "style-src-elem": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"]
+  }
+}))
 app.use(xss());
 app.use(hpp());
 app.use(cors());

@@ -57,13 +57,15 @@ exports.chapters_add = asyncHandler(async function(req, res, next) {
 exports.chapters_detail = asyncHandler(async function(req, res, next) {
 
   const chapter = await Chapter.findById(req.params.chapterID);
+  const project = await Project.findById(req.params.projectID);
 
   return res
     .status(200)
     .render('pages/chapters/detail', {
       success: true,
       title: `chapter ${chapter.number}`,
-      chapter
+      chapter,
+      project
 
     });
 

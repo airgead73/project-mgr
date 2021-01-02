@@ -11,12 +11,36 @@ const PhotoSchema = new mongoose.Schema({
     type: Number,
     min: 1,
     required: [true, 'Add Chapter number.'],
+  }, 
+  type: {
+    type: String,
+    enum: ['figure', 'photo']
+  },
+  title: {
+    type: String,
+    maxlength: [100, 'Caption should be less than 100 characters.']
   },    
   caption: {
     type: String,
     maxlength: [100, 'Caption should be less than 100 characters.'],
-    required: [true, 'Add caption.'],
   },
+  alt: {
+    type: String,
+    maxlength: [500, 'Alt text should be less than 100 characters.'],
+    required: [true, 'Add alt text.'],
+  },  
+  vendor: {
+    type: String,
+    maxlength: [100, 'Vendor should be less than 100 characters.']
+  },
+  credit: {
+    type: String,
+    maxlength: [500, 'Credit should be less than 100 characters.']
+  },
+  notes: {
+    type: String,
+    maxlength: [100, 'Notes should be less than 100 characters.']
+  },       
   project: {
     type: mongoose.Schema.ObjectId,
     ref: 'Project',

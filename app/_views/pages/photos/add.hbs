@@ -1,8 +1,8 @@
 <header class="row mt-3" id="main__header">
   <section class="col-md-6">
-    <h1 class="h3">
-      {{project.code}} 
-      <small><a href="/projects/{{project.id}}/chapters">back</a> </small>           
+    <h1 class="h4">
+      {{project.code}} <small>chapter {{chapter.number}}</small>
+               
       </h1>
   </section>
   <section class="col-md-6 d-flex justify-content-end ">
@@ -22,29 +22,46 @@
       autocomplete="off"
     >
       <header class="card-header bg-transparent border-dark">
-        <legend class="text-right">{{title}}</legend>
+        <h2 class="h3">{{title}}</h2>
       <div class="alert alert-warning alert-dismissible fade show" role="alert" data-message="container">
         <p data-message="text"></p>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       </header>
       <main class="card-body text-dark">
+        <fieldset class="mb-3 d-flex justify-content-end align-items-end">
+          <legend>photo number</legend>
+          {{!-- <label for="number_ch" class="form-label sr-only">chapter number</label> --}}
+          <input type="number" class="form-control" name="number_ch" id="number_ch"> 
+          <div class="dot" style="font-size: 30px; line-height: 1;">&nbsp;.&nbsp;</div>
+          {{!-- <label for="number" class="form-label sr-only">number</label> --}}
+          <input type="number" class="form-control" name="number" id="number">                   
+        </fieldset> 
         <div class="mb-3">
-          <label for="number_ch" class="form-label">chapter number</label>
-          <input type="number" class="form-control" name="number_ch" id="number_ch">
-        </div>         
+          <label for="vendor" class="form-label">vendor</label>
+          <input type="text" class="form-control" name="vendor" id="vendor">
+        </div> 
         <div class="mb-3">
-          <label for="number" class="form-label">number</label>
-          <input type="number" class="form-control" name="number" id="number">
+          <label for="credit" class="form-label">credit</label>
+          <input type="text" class="form-control" name="credit" id="credit">
         </div> 
         <div class="mb-3">
           <label for="caption" class="form-label">caption</label>
           <textarea type="text" class="form-control" name="caption" id="caption"></textarea>
         </div>
-      <div class="mb-3">
-        <label for="new_image" class="form-label">add image file</label>
-        <input class="form-control" type="file" id="new_image" name="new_image">
-      </div>        
+        <div class="mb-3">
+          <label for="alt" class="form-label">alt text</label>
+          <textarea type="text" class="form-control" name="alt" id="alt"></textarea>
+        </div>        
+        <div class="mb-3">
+          <label for="notes" class="form-label">notes</label>
+          <textarea type="text" class="form-control" name="notes" id="notes"></textarea>
+        </div>        
+        <div class="mb-3">
+          <label for="new_image" class="form-label">add image file</label>
+          <input class="form-control" type="file" id="new_image" name="new_image">
+        </div>         
+       
       </main>
       <footer class="card-footer bg-transparent border-dark text-right">
         <button type="submit" class="btn btn-dark">submit</button>

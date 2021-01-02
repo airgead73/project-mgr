@@ -1,12 +1,22 @@
 <section class="row mt-5" id="main_content">
-  <div class="col-md-9">
+
+  <div class="col-md-6">
     <div class="card mb-3">
       <div class="card-header d-flex justify-content-between">
         <h2 class="h4"><span class="badge bg-dark">Photo {{photo.number_ch}}.{{photo.number}}</span></h2>
         <a href="/photos/update/{{photo._id}}" class="btn btn-primary text-white">update</a>
       </div>
-      <div class="card-body">
-        <p class="card-text">{{photo.caption}}</p>
+      <div class="card-body row">
+        <div class="col-md-2">
+          <img src="{{photo.url}}" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-10">
+          <p class="card-text">{{photo.caption}}</p>
+        </div>
+         
+    
+
+        
 
       </div>
       <div class="card-footer text-muted">
@@ -16,7 +26,5 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
-    <img src="{{photo.url}}" alt="" class="img-fluid">
-  </div>
+
 </section>

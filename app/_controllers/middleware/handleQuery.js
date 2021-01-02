@@ -6,6 +6,9 @@ const handleQuery = (model, populate) => async (req, res, next) => {
 
   // add project to query params
   if(req.params.projectID) reqQuery.project = req.params.projectID;
+  
+  // add chapter to query params
+  if(req.params.chapterID) reqQuery.chapter = req.params.chapterID;  
 
   const removeFields = ['select', 'sort']
 

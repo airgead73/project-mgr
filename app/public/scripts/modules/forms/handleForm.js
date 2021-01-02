@@ -43,7 +43,9 @@ export default function handleForm(_btns) {
       });
   
       body = JSON.stringify(body);     
-    }  
+    } else if(contentType === 'multipart/form-data') {
+      body = new FormData(form);
+    }
 
     // fetch data
     fetch(url, {
