@@ -33,22 +33,26 @@
           <legend>figure number</legend>
           {{!-- <label for="number_ch" class="form-label sr-only">chapter number</label> --}}
           <input type="number" class="form-control" name="number_ch" id="number_ch"> 
-          <div class="dot" style="font-size: 30px; line-height: 1;">&nbsp;.&nbsp;</div>
+          <div class="dot">&nbsp;.&nbsp;</div>
           {{!-- <label for="number" class="form-label sr-only">number</label> --}}
           <input type="number" class="form-control" name="number" id="number">                   
         </fieldset> 
         <div class="mb-3">
-          <label for="vendor" class="form-label">vendor</label>
+          <label for="title" class="form-label">title</label>
+          <input type="text" class="form-control" name="title" id="title">
+        </div>  
+        <div class="mb-3">
+          <label for="caption" class="form-label">caption</label>
+          <textarea type="text" class="form-control" name="caption" id="caption"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="vendor" class="form-label">source</label>
           <input type="text" class="form-control" name="vendor" id="vendor">
         </div> 
         <div class="mb-3">
           <label for="credit" class="form-label">credit</label>
           <input type="text" class="form-control" name="credit" id="credit">
-        </div> 
-        <div class="mb-3">
-          <label for="caption" class="form-label">caption</label>
-          <textarea type="text" class="form-control" name="caption" id="caption"></textarea>
-        </div>
+        </div>         
         <div class="mb-3">
           <label for="alt" class="form-label">alt text</label>
           <textarea type="text" class="form-control" name="alt" id="alt"></textarea>

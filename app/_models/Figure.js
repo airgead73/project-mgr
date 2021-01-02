@@ -25,9 +25,9 @@ const FigureSchema = new mongoose.Schema({
     maxlength: [500, 'Alt text should be less than 100 characters.'],
     required: [true, 'Add alt text.'],
   },  
-  vendor: {
+  source: {
     type: String,
-    maxlength: [100, 'Vendor should be less than 100 characters.']
+    maxlength: [200, 'Source should be less than 100 characters.']
   },
   credit: {
     type: String,

@@ -38,7 +38,8 @@ app.use(helmet.contentSecurityPolicy({
     "default-src": ["'self'"],
     "img-src": ["'self'", "*.cloudinary.com"],
     "font-src": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
-    "style-src-elem": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"]
+    "style-src-elem": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+    "style-src": ["'self'"]
   }
 }))
 app.use(xss());

@@ -12,9 +12,9 @@ const {
 // middleware
 const handleQuery = require('../middleware/handleQuery');
 const { validationRules, validate } = require('../middleware/handleValidation');
-const handleUpload = require('../middleware/handlePhotos/handleUpload');
-const uploadCloud = require('../middleware/handlePhotos/uploadCloud');
-const handleData = require('../middleware/handlePhotos/handleData');
+const handleUpload = require('../middleware/handleImages/handleUpload');
+const uploadCloud = require('../middleware/handleImages/uploadCloud');
+const handleData = require('../middleware/handleImages/handleData');
 
 // populate options
 populate = [{path: 'chapter', select: 'code'}]

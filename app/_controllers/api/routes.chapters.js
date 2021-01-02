@@ -2,6 +2,7 @@ const { Router } = require('express');
 const chaptersRouter = Router({ mergeParams: true });
 const Chapter = require('../../_models/Chapter');
 const { photosRouter } = require('./routes.photos');
+const { figuresRouter } = require('./routes.figures');
 
 // controller
 const {
@@ -23,6 +24,7 @@ populate = [{path: 'project', select: 'title'}];
 
 // nested routes
 chaptersRouter.use('/:chapterID/photos', photosRouter);
+chaptersRouter.use('/:chapterID/figures', figuresRouter);
 
 // routes
 chaptersRouter
