@@ -5,12 +5,12 @@ const PhotoSchema = new mongoose.Schema({
   number: {
     type: Number,
     min: 1,
-    required: [true, 'Add Photo number.'],
+    required: [true, 'Add image number.'],
   },
   number_ch: {
     type: Number,
     min: 1,
-    required: [true, 'Add Chapter number.'],
+    required: [true, 'Add chapter number.'],
   }, 
   type: {
     type: String,

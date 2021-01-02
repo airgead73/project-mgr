@@ -1,6 +1,6 @@
 # Express-Starter
 
-## v8 add photo controllers and cloudinary config
+## v9 change photo model to image
 
 ### install
 
