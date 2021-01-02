@@ -1,16 +1,27 @@
-<header class="row mt-3" id="main__header">
-  <section class="col-md-6">
-    <h1 class="h4">
-      {{project.code}} <small>chapter {{chapter.number}}</small>
-               
-      </h1>
-  </section>
-  <section class="col-md-6 d-flex justify-content-end ">
-    <h2 class="h3">{{project.title}}</h2>
-  </section>
-</header>
+<!DOCTYPE html>
+<html lang="en">
 
-<section class="row mt-5" id="main_content">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>photo add</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <header class="row mt-3" id="main__header">
+    <section class="col-md-6">
+      <h1 class="h4">
+        ENG121 
+        <a href="/api/projects/{{project.id}}/chapters/{{chapter.id}}"><small>chapter 1</small></a>
+      </h1>
+    </section>
+    <section class="col-md-6 d-flex justify-content-end ">
+      <h2 class="h3">Intro to English</h2>
+    </section>
+  </header>
+
+  <section class="row mt-5" id="main_content">
     <form method="POST" action="/api/projects/{{project.id}}/chapters/{{chapter.id}}/photos"
     enctype="multipart/form-data" target="/projects/{{project.id}}/chapters/{{chapter.id}}"
     class="col-lg-6 offset-lg-3 card" id="form_add_photo" autocomplete="off">
@@ -55,4 +66,8 @@
         <button type="submit" class="btn btn-outline-light mt-2 mb-2">submit</button>
       </footer>
     </form>
-</section>
+
+  </section>
+</body>
+
+</html>
