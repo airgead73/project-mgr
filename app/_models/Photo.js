@@ -9,7 +9,7 @@ const PhotoSchema = new mongoose.Schema({
   },
   number_ch: {
     type: Number,
-    min: 1,
+    min: 0,
     required: [true, 'Add chapter number.'],
   }, 
   title: {

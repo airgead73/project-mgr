@@ -19,13 +19,17 @@
         <div class="col-md-6 text-end">back to chapter</div>        
       </header>
       <main class="card-body row">
+              <div class="col-md-12 alert alert-warning alert-dismissible fade show" role="alert" data-message="container">
+        <p data-message="text"></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
         <fieldset class="col-md-12 d-flex justify-content-center align-items-end mb-4">
           <legend class="legend_number text-end">photo number</legend>
           <input type="number" class="form-control" name="number_ch" id="number_ch">
           <span class="dot">.</span>
           <input type="number" class="form-control" name="number" id="number">
         </fieldset>
-
+        <input type="hidden" name="type" value="photos">
         <div class="col-md-6 mb-3">
           <label for="vendor" class="form-label">vendor</label>
           <input type="text" class="form-control" name="vendor" id="vendor">          
