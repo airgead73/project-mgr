@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const photosRouter = Router({ mergeParams: true });
+const figuresRouter = Router({ mergeParams: true });
 const Figure = require('../../_models/Figure');
 
 // controller
@@ -31,7 +31,7 @@ figuresRouter
     create);
 
 figuresRouter
-  .route('/:photoID')
+  .route('/:figureID')
   .get(read_one);
 
 module.exports = {
