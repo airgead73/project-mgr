@@ -2,8 +2,7 @@
   <section class="col-md-6">
     <h1 class="h4">
       {{project.code}} <small>chapter {{chapter.number}}</small>
-               
-      </h1>
+    </h1>
   </section>
   <section class="col-md-6 d-flex justify-content-end ">
     <h2 class="h3">{{project.title}}</h2>
@@ -11,65 +10,53 @@
 </header>
 
 <section class="row mt-5" id="main_content">
-  <div class="col-md-6 offset-md-3">
-    <form 
-      method="POST"
-      action="/api/projects/{{project.id}}/chapters/{{chapter.id}}/figures" 
-      enctype="multipart/form-data" 
-      target="/projects/{{project.id}}/chapters/{{chapter.id}}"
-      class="card border-dark mb-3" 
-      id="form_add_figure"
-      autocomplete="off"
-    >
-      <header class="card-header bg-transparent border-dark">
-        <h2 class="h3">{{title}}</h2>
-      <div class="alert alert-warning alert-dismissible fade show" role="alert" data-message="container">
-        <p data-message="text"></p>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <form method="POST" action="/api/projects/{{project.id}}/chapters/{{chapter.id}}/figures"
+    enctype="multipart/form-data" target="/projects/{{project.id}}/chapters/{{chapter.id}}"
+    class="col-lg-6 offset-lg-3 card" id="form_add_figure" autocomplete="off">
+    <header class="card-header row bg-dark text-white">
+      <div class="col-md-6">
+        <h2 class="h3">add figure</h2>
       </div>
-      </header>
-      <main class="card-body text-dark">
-        <fieldset class="mb-3 d-flex justify-content-end align-items-end">
-          <legend>figure number</legend>
-          {{!-- <label for="number_ch" class="form-label sr-only">chapter number</label> --}}
-          <input type="number" class="form-control" name="number_ch" id="number_ch"> 
-          <div class="dot">&nbsp;.&nbsp;</div>
-          {{!-- <label for="number" class="form-label sr-only">number</label> --}}
-          <input type="number" class="form-control" name="number" id="number">                   
-        </fieldset> 
-        <div class="mb-3">
-          <label for="title" class="form-label">title</label>
-          <input type="text" class="form-control" name="title" id="title">
-        </div>  
-        <div class="mb-3">
-          <label for="caption" class="form-label">caption</label>
-          <textarea type="text" class="form-control" name="caption" id="caption"></textarea>
-        </div>
-        <div class="mb-3">
-          <label for="vendor" class="form-label">source</label>
-          <input type="text" class="form-control" name="vendor" id="vendor">
-        </div> 
-        <div class="mb-3">
-          <label for="credit" class="form-label">credit</label>
-          <input type="text" class="form-control" name="credit" id="credit">
-        </div>         
-        <div class="mb-3">
-          <label for="alt" class="form-label">alt text</label>
-          <textarea type="text" class="form-control" name="alt" id="alt"></textarea>
-        </div>        
-        <div class="mb-3">
-          <label for="notes" class="form-label">notes</label>
-          <textarea type="text" class="form-control" name="notes" id="notes"></textarea>
-        </div>        
-        <div class="mb-3">
-          <label for="new_image" class="form-label">add image file</label>
-          <input class="form-control" type="file" id="new_image" name="new_image">
-        </div>         
-       
-      </main>
-      <footer class="card-footer bg-transparent border-dark text-right">
-        <button type="submit" class="btn btn-dark">submit</button>
-      </footer>
-    </form>
-  </div>
+      <div class="col-md-6 text-end">back to chapter</div>
+    </header>
+    <main class="card-body row">
+      <fieldset class="col-md-12 d-flex justify-content-center align-items-end mb-4">
+        <legend class="legend_number text-end">figure number</legend>
+        <input type="number" class="form-control" name="number_ch" id="number_ch">
+        <span class="dot">.</span>
+        <input type="number" class="form-control" name="number" id="number">
+      </fieldset>
+
+      <div class="col-md-6 mb-3">
+        <label for="source" class="form-label">source</label>
+        <input type="text" class="form-control" name="source" id="source">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="credit" class="form-label">credit</label>
+        <input type="text" class="form-control" name="credit" id="credit">
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="title" class="form-label">title</label>
+        <input type="text" class="form-control" name="title" id="title">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="caption" class="form-label">caption</label>
+        <textarea type="text" class="form-control" name="caption" id="caption"></textarea>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="alt" class="form-label">alt text</label>
+        <textarea type="text" class="form-control" name="alt" id="alt"></textarea>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="notes" class="form-label">notes</label>
+        <textarea type="text" class="form-control" name="notes" id="notes"></textarea>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="new_image" class="form-label">add image file</label>
+        <input class="form-control" type="file" id="new_image" name="new_image">
+      </div>
+    </main>
+    <footer class="card-footer row bg-dark">
+      <button type="submit" class="btn btn-outline-light mt-2 mb-2">submit</button>
+    </footer>
 </section>

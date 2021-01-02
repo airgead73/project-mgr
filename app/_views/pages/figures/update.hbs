@@ -8,47 +8,50 @@
 </header>
 
 <section class="row mt-5" id="main_content">
-  <div class="col-md-6 offset-md-3">
-    <form 
-      method="PUT",
-      action="/api/figures/{{figure._id}}"
-      enctype="multipart/form-data"
-      target="/figures/{{figure._id}}"
-      class="card border-dark mb-3" 
-      id="form_update_chapter"
-      >
-      <header class="card-header bg-transparent border-dark">
-        <legend class="text-right">update {{figure.number_ch}}.{{figure.number}}</legend>
-        <div class="alert alert-danger text-center fixed-top" role="alert" data-message="container">
-          <p data-message="text"></p>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      </header>
-      <main class="card-body text-dark">
-        <div class="mb-3">
-          <label for="number_ch" class="form-label">ch number_ch</label>
-          <input type="number_ch" class="form-control" name="number_ch" id="number_ch" value="{{figure.number_ch}}">
-        </div>
-        <div class="mb-3">
-          <label for="number" class="form-label">figure number</label>
-          <input type="number" class="form-control" name="number" id="number" value="{{figure.number}}">
-        </div>
-        <div class="mb-3">
-          <label for="title" class="form-label">title</label>
-          <input type="text" class="form-control" name="title" id="title" value="{{figure.title}}">
-        </div>                         
-        <div class="mb-3">
-          <label for="caption" class="form-label">caption</label>
-          <input type="text" class="form-control" name="caption" id="caption" value="{{figure.caption}}">
-        </div>
-        <div class="mb-3">
-          <label for="new_image" class="form-label">add image file</label>
-          <input class="form-control" type="file" id="new_image" name="new_image">
-        </div> 
-      </main>
-      <footer class="card-footer bg-transparent border-dark text-right">
-        <button type="submit" class="btn btn-dark">submit</button>
-      </footer>
-    </form>
-  </div>
+  <header class="card-header row bg-dark text-white">
+    <div class="col-md-6">
+      <h2 class="h3">add figure</h2>
+    </div>
+    <div class="col-md-6 text-end">back to chapter</div>
+  </header>
+  <main class="card-body row">
+    <fieldset class="col-md-12 d-flex justify-content-center align-items-end mb-4">
+      <legend class="legend_number text-end">figure number</legend>
+      <input type="number" class="form-control" name="number_ch" id="number_ch" value="{{figure.number_ch}}">
+      <span class="dot">.</span>
+      <input type="number" class="form-control" name="number" id="number" value="{{figure.number}}">
+    </fieldset>
+
+    <div class="col-md-6 mb-3">
+      <label for="source" class="form-label">source</label>
+      <input type="text" class="form-control" name="source" id="source" value="{{figure.source}}">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="credit" class="form-label">credit</label>
+      <input type="text" class="form-control" name="credit" id="credit" value="{{figure.credit}}">
+    </div>
+    <div class="col-md-12 mb-3">
+      <label for="title" class="form-label">title</label>
+      <input type="text" class="form-control" name="title" id="title" value="{{figure.title}}">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="caption" class="form-label">caption</label>
+      <textarea type="text" class="form-control" name="caption" id="caption" value="{{figure.caption}}"></textarea>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="alt" class="form-label">alt text</label>
+      <textarea type="text" class="form-control" name="alt" id="alt" value="{{figure.alt}}"></textarea>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="notes" class="form-label">notes</label>
+      <textarea type="text" class="form-control" name="notes" id="notes" value="{{figure.notes}}"></textarea>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="new_image" class="form-label">add image file</label>
+      <input class="form-control" type="file" id="new_image" name="new_image">
+    </div>
+  </main>
+  <footer class="card-footer row bg-dark">
+    <button type="submit" class="btn btn-outline-light mt-2 mb-2">submit</button>
+  </footer>
 </section>
