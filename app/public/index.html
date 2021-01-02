@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>photo add</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <header class="row mt-3" id="main__header">
+    <section class="col-md-6">
+      <h1 class="h4">
+        ENG121 
+        <a href="/api/projects/{{project.id}}/chapters/{{chapter.id}}"><small>chapter 1</small></a>
+      </h1>
+    </section>
+    <section class="col-md-6 d-flex justify-content-end ">
+      <h2 class="h3">Intro to English</h2>
+    </section>
+  </header>
+
+  <section class="row mt-5" id="main_content">
+    <form action="" class="card w-50 m-auto">
+      <header 
+        method="POST"
+        action="/api/projects/{{project.id}}/chapters/{{chapter.id}}/photos" 
+        enctype="multipart/form-data" 
+        target="/projects/{{project.id}}/chapters/{{chapter.id}}"
+        class="card-header row bg-transparent"
+        aria-autocomplete="off"
+        >
+        <div class="col-md-6"><h2 class="h3">add photo</h2></div>
+        <div class="col-md-6 text-end">back to chapter</div>        
+      </header>
+      <main class="card-body row">
+        <fieldset class="col-md-12 d-flex justify-content-center align-items-end mb-4">
+          <legend class="legend_number text-end">photo number</legend>
+          <input type="number" class="form-control" name="number_ch" id="number_ch">
+          <span class="dot">.</span>
+          <input type="number" class="form-control" name="number" id="number">
+        </fieldset>
+
+        <div class="col-md-6 mb-3">
+          <label for="vendor" class="form-label">vendor</label>
+          <input type="text" class="form-control" name="vendor" id="vendor">          
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="credit" class="form-label">credit</label>
+          <input type="text" class="form-control" name="credit" id="credit">          
+        </div> 
+        <div class="col-md-6 mb-3">
+          <label for="caption" class="form-label">caption</label>
+          <textarea type="text" class="form-control" name="caption" id="caption"></textarea>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="alt" class="form-label">alt text</label>
+          <textarea type="text" class="form-control" name="alt" id="alt"></textarea>
+        </div>   
+        <div class="col-md-6 mb-3">
+          <label for="notes" class="form-label">notes</label>
+          <textarea type="text" class="form-control" name="notes" id="notes"></textarea>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="new_image" class="form-label">add image file</label>
+          <input class="form-control" type="file" id="new_image" name="new_image">
+        </div>                    
+      </main>
+      <footer class="card-footer row bg-transparent">
+        <button type="submit" class="btn btn-dark mt-2 mb-2">submit</button>
+      </footer>
+
+    </form>
+    <!-- <div class="col-md-12">
+      <form method="POST" action="/api/projects/{{project.id}}/chapters/{{chapter.id}}/photos"
+        enctype="multipart/form-data" target="/projects/{{project.id}}/chapters/{{chapter.id}}"
+        class="card border-dark mb-3" id="form_add_photo" autocomplete="off">
+        <header class="card-header bg-transparent border-dark">
+          <h2 class="h3">add photo</h2>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert" data-message="container">
+            <p data-message="text"></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </header>
+        <main class="card-body text-dark">
+          <label for="number_ch" class="form-label sr-only">chapter number</label>
+          <input type="number" class="form-control" name="number_ch" id="number_ch">
+          <div class="dot">&nbsp;.&nbsp;</div>
+          <label for="number" class="form-label sr-only">number</label>
+          <input type="number" class="form-control" name="number" id="number">
+          <div class="mb-3">
+            <label for="vendor" class="form-label">vendor</label>
+            <input type="text" class="form-control" name="vendor" id="vendor">
+          </div>
+          <div class="mb-3">
+            <label for="credit" class="form-label">credit</label>
+            <input type="text" class="form-control" name="credit" id="credit">
+          </div>
+          <div class="mb-3">
+            <label for="caption" class="form-label">caption</label>
+            <textarea type="text" class="form-control" name="caption" id="caption"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="alt" class="form-label">alt text</label>
+            <textarea type="text" class="form-control" name="alt" id="alt"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="notes" class="form-label">notes</label>
+            <textarea type="text" class="form-control" name="notes" id="notes"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="new_image" class="form-label">add image file</label>
+            <input class="form-control" type="file" id="new_image" name="new_image">
+          </div>
+
+        </main>
+        <footer class="card-footer bg-transparent border-dark text-right">
+          <button type="submit" class="btn btn-dark">submit</button>
+        </footer>
+      </form>
+    </div> -->
+  </section>
+</body>
+
+</html>

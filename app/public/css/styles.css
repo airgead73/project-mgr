@@ -27647,3 +27647,18 @@ form {
   font-size: 30px;
   line-height: 1;
 }
+
+.form-control[name='number_ch'] {
+  width: 40px;
+}
+
+.form-control[name='number'] {
+  width: 40px;
+}
+
+.legend_number {
+  padding-right: 10px;
+  padding-top: 10px;
+  line-height: 1;
+  width: auto;
+}
