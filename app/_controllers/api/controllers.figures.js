@@ -10,7 +10,7 @@ const createError = require('http-errors');
 
 exports.create = asyncHandler(async function(req, res, next) {
 
-  const figure = new Figure(res.figureData);
+  const figure = new Figure(res.imageData);
 
   await figure.save();
 
