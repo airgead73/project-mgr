@@ -14,11 +14,11 @@
   <div class="col-md-6 offset-md-3">
     <form 
       method="POST"
-      action="/api/projects/{{project.id}}/chapters/{{chapter.id}}/photos" 
+      action="/api/projects/{{project.id}}/chapters/{{chapter.id}}/figures" 
       enctype="multipart/form-data" 
       target="/projects/{{project.id}}/chapters/{{chapter.id}}"
       class="card border-dark mb-3" 
-      id="form_add_photo"
+      id="form_add_figure"
       autocomplete="off"
     >
       <header class="card-header bg-transparent border-dark">
@@ -30,7 +30,7 @@
       </header>
       <main class="card-body text-dark">
         <fieldset class="mb-3 d-flex justify-content-end align-items-end">
-          <legend>photo number</legend>
+          <legend>figure number</legend>
           {{!-- <label for="number_ch" class="form-label sr-only">chapter number</label> --}}
           <input type="number" class="form-control" name="number_ch" id="number_ch"> 
           <div class="dot" style="font-size: 30px; line-height: 1;">&nbsp;.&nbsp;</div>
