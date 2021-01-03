@@ -1,7 +1,5 @@
 const { Router } = require('express');
 const accessRouter = Router();
-const multer = require('multer');
-const upload = multer();
 
 const {
   get_signup,
@@ -19,7 +17,7 @@ accessRouter
 accessRouter
   .route('/login')
   .get(get_login)
-  .post(upload.none(), post_login); 
+  .post(post_login); 
   
 accessRouter
   .route('/logout')

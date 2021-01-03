@@ -4,7 +4,7 @@ const { cloudinary } = require('../config/cloudinary');
 const PhotoSchema = new mongoose.Schema({
   number: {
     type: Number,
-    min: 1,
+    min: 0,
     required: [true, 'Add image number.'],
   },
   number_ch: {

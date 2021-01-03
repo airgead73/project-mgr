@@ -1,5 +1,12 @@
 <section class="container--form">
-    <form class="card border-dark mb-3" id="form_login">  
+    <form 
+      method="POST"
+      action="/login"
+      enctype="application/json"
+      target="/projects"
+      class="card border-dark mb-3" 
+      id="form_login"
+    >  
       <header class="card-header bg-transparent border-dark">
         <legend>login</legend>
         <div class="alert text-center fixed-top" role="alert" data-message="form_message"></div>

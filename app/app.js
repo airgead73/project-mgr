@@ -10,7 +10,7 @@ const handleError = require('./_controllers/middleware/handleError');
 const helmet = require('helmet');
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 const hpp = require('hpp');
-
+const policies = require('./config/csp');
 const methodOverride = require('method-override');
 const mongoSanitize = require('express-mongo-sanitize');
 const path = require('path');
@@ -33,15 +33,7 @@ connectDB();
  * @desc  SECURITY
  */
 app.use(helmet());
-app.use(helmet.contentSecurityPolicy({
-  directives: {
-    "default-src": ["'self'"],
-    "img-src": ["'self'", "*.cloudinary.com"],
-    "font-src": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
-    "style-src-elem": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
-    "style-src": ["'self'"]
-  }
-}))
+app.use(helmet.contentSecurityPolicy(policies))
 app.use(xss());
 app.use(hpp());
 app.use(cors());
