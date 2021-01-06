@@ -41,7 +41,6 @@ exports.read_all = asyncHandler(async function(req, res, next) {
     .status(200)
     .json({ 
       success: success,
-      current_project: res.current_project,
       count: count,
       message: count > 0 ? `GET: ${count} found`: 'No chapters found.',
       chapters: data
