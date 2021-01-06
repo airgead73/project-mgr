@@ -10,8 +10,6 @@ const createError = require('http-errors');
 
 exports.create = asyncHandler(async function(req, res, next) {
 
-  console.log(req.body);
-
   const project = new Project(req.body);
 
   await project.save();
@@ -35,8 +33,6 @@ exports.create = asyncHandler(async function(req, res, next) {
 exports.read_all = asyncHandler(async function(req, res, next) {
 
   const { success, count, data } = res.results;
-
-  console.log(data)
 
   return res
     .status(200)
