@@ -17,10 +17,7 @@ const {
 
 // middleware
 const handleQuery = require('../middleware/handleQuery');
-const getProject = require('../middleware/getProject');
 const { validationRules, validate } = require('../middleware/handleValidation');
-
-chaptersRouter.use(getProject());
 
 // populate options
 populate = [{path: 'project', select: 'title'}];

@@ -15,13 +15,11 @@ const { validationRules, validate } = require('../middleware/handleValidation');
 const handleUpload = require('../middleware/handleImages/handleUpload');
 const uploadCloud = require('../middleware/handleImages/uploadCloud');
 const handleData = require('../middleware/handleImages/handleData');
-const getChapter = require('../middleware/getChapter');
 
 // populate options
 populate = [{path: 'chapter', select: 'code'}]
 
 // routes
-photosRouter.use(getChapter());
 
 photosRouter
   .route('/')

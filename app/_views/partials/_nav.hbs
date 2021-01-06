@@ -15,15 +15,16 @@
       <a class="nav-link{{#if active.about}} active{{/if}}" {{#if active.about}}aria-current="page" {{/if}}href="/about">about</a>
     </li> 
 
-    <hr>
-
-
-
-         
-
-
+    <hr>     
   </ul>  
+  {{#if current_project}}
+  <p>current project{{current_project.code}}</p>
+  {{/if}}
 
+
+  {{#if current_chapter}}
+  <p>{{current_chapter.title}}</p>
+  {{/if}}
 </nav>
 
 
