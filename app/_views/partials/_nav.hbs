@@ -25,13 +25,14 @@
     <li class="nav-item text-center">
       <a class="nav-link"href="/projects/{{current_project._id}}/chapters/{{current_chapter._id}}">ch {{current_chapter.number}}</a>
     </li> 
-    <hr>
+     <hr>
+    {{/if}}     
     {{#each current_project.chapters}}   
     <li class="nav-item">
       <a class="nav-link"href="/projects/{{this.project}}/chapters/{{this._id}}">ch {{this.number}}</a>
     </li> 
-    {{/each}}     
-    {{/if}}      
+    {{/each}}    
+     
     {{/if}}
   
  

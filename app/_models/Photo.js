@@ -18,7 +18,7 @@ const PhotoSchema = new mongoose.Schema({
   },    
   caption: {
     type: String,
-    maxlength: [100, 'Caption should be less than 100 characters.'],
+    maxlength: [500, 'Caption should be less than 500 characters.'],
   },
   alt: {
     type: String,

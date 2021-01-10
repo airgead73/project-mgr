@@ -16,6 +16,10 @@ const {
 
 // middleware
 const handleQuery = require('../middleware/handleQuery');
+const getProject = require('../middleware/getProject');
+const getChapter = require('../middleware/getChapter');
+
+chaptersRouter.get('*', getProject, getChapter);
 
 // options
 const populate = [{ path: 'chapters', select: 'number title' }];
