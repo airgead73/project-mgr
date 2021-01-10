@@ -14,17 +14,30 @@
     <li class="nav-item">
       <a class="nav-link{{#if active.about}} active{{/if}}" {{#if active.about}}aria-current="page" {{/if}}href="/about">about</a>
     </li> 
+    <hr>    
 
-    <hr>     
+    {{#if current_project}}
+    <li class="nav-item text-center">
+      <a class="nav-link"href="/projects/{{current_project._id}}">{{current_project.code}}</a>
+    </li>  
+    <hr>
+    {{#if current_chapter}}
+    <li class="nav-item text-center">
+      <a class="nav-link"href="/projects/{{current_project._id}}/chapters/{{current_chapter._id}}">ch {{current_chapter.number}}</a>
+    </li> 
+    <hr>
+    {{#each current_project.chapters}}   
+    <li class="nav-item">
+      <a class="nav-link"href="/projects/{{this.project}}/chapters/{{this._id}}">ch {{this.number}}</a>
+    </li> 
+    {{/each}}     
+    {{/if}}      
+    {{/if}}
+  
+ 
+
   </ul>  
-  {{#if current_project}}
-  <p>current project{{current_project.code}}</p>
-  {{/if}}
-
-
-  {{#if current_chapter}}
-  <p>{{current_chapter.title}}</p>
-  {{/if}}
+ 
 </nav>
 
 

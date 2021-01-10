@@ -7,10 +7,6 @@ const { photosRouter } = require('./routes.photos');
 const { figuresRouter } = require('./routes.figures');
 const clientRouter = Router();
 
-// middleware
-const getProject = require('../middleware/getProject');
-const getChapter = require('../middleware/getChapter');
-
 // routes
 clientRouter.use('/', landingsRouter);
 clientRouter.use('/projects', projectsRouter);

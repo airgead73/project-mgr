@@ -16,7 +16,8 @@ const {
 const handleQuery = require('../middleware/handleQuery');
 const getProject = require('../middleware/getProject');
 const getChapter = require('../middleware/getChapter');
-photosRouter.use('*', getProject, getChapter);
+
+photosRouter.get('*', getProject, getChapter);
 
 // options
 const populate = [{ path: 'photos', select: 'number title' }];

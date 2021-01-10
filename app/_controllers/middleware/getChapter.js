@@ -4,10 +4,11 @@ const getChapter = async (req, res, next) => {
 
   const { chapterID } = req.params;
 
-  console.log("chapter:",chapterID);
+  const chapter = await Chapter.findById(chapterID);
 
-  if(req.params.chapterID) {
-    console.log('specific chapter');
+  if(chapterID) {
+    res.locals.current_chapter = chapter;
+    console.log("chapter:", chapter);
   } else {
     console.log('no specific chapter');
   }

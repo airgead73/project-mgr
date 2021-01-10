@@ -4,10 +4,13 @@ const getProject = async (req, res, next) => {
 
   const { projectID } = req.params;
 
-  console.log("project:",projectID);
+  const project = await Project.findById(projectID).populate([
+    { path: 'chapters', select: 'number title' }
+  ]);
 
-  if(req.params.projectID) {
-    console.log('specific project');
+  if(projectID) {
+    res.locals.current_project = project;
+    console.log("project:", project);
   } else {
     console.log('no specific project');
   }
