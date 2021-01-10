@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const projectsRouter = Router();
+const projectsRouter = Router({ mergeParams: true });
 const { chaptersRouter } = require('./routes.chapters');
 const { milestonesRouter } = require('./routes.milestones');
 

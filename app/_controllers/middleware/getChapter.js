@@ -1,21 +1,18 @@
 const Chapter = require('../../_models/Chapter');
 
-const getChapter = () => async (req, res, next) => {
+const getChapter = async (req, res, next) => {
 
-let chapter = req.params.chapterID;
+  const { chapterID } = req.params;
 
-  console.log('get chapter');
-  next();
+  console.log("chapter:",chapterID);
 
-  // if(chapter) {
-  //   chapter = await Chapter.findById(chapter);
-  //   console.log("chapter:", chapter);
-  //   res.current_chapter = chapter;
-  //   return next();
-  // } else {
-  //   res.current_chapter = null;
-  //   return next();
-  // }
+  if(req.params.chapterID) {
+    console.log('specific chapter');
+  } else {
+    console.log('no specific chapter');
+  }
+
+  return next();
 
 }
 

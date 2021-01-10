@@ -1,21 +1,18 @@
 const Project = require('../../_models/Project');
 
-const getProject = () => async (req, res, next) => {
+const getProject = async (req, res, next) => {
 
-  console.log('get project');
-  next();
+  const { projectID } = req.params;
 
-    // let project = req.params.projectID;
-    
-    // if(project) {
-    //   project = await Project.findById(project).populate([{path: 'chapters', select: 'number title'}]);
-    //   console.log('project:', project);
-    //   res.current_project = project;
-    //   return next();
-    // } else {
-    //   res.current_project = null;
-    //   return next();
-    // }
+  console.log("project:",projectID);
+
+  if(req.params.projectID) {
+    console.log('specific project');
+  } else {
+    console.log('no specific project');
+  }
+
+  return next();
      
 };
 
