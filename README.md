@@ -1,6 +1,6 @@
 # Express-Starter
 
-## v9 add figure model
+## v10 adjust photo and figure behavior
 
 ### install
 
