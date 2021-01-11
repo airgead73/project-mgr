@@ -12,7 +12,7 @@ const uploadCloud = async function(req, res, next) {
   console.log('type', type);
 
   const cloudFile = await cloudinary.uploader.upload('uploads/temp', {
-    folder: `projects/${project.code}/ch_${chapter.number}/`,
+    folder: `projects/${project.code}/ch_${chapter.number}/${type}/`,
     tags: 'images'
   });
 
