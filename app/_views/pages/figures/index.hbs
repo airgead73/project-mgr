@@ -12,6 +12,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col"></th>
       <th scope="col">caption</th>
       <th scope="col">vendor</th>
       <th scope="col">credit</th>
@@ -22,6 +23,9 @@
   {{#each figures}}
     <tr>
       <td scope="row">{{this.number_ch}}.{{this.number}}</td>
+      <td>
+        <img src="{{this.url}}" alt="" class="img-thumbnail">
+      </td>      
       <td>
         <a href="/figures/{{this._id}}" class="card-link">{{this.caption}}</a>        
       </td>
