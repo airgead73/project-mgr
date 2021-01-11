@@ -11,7 +11,6 @@ const Project = require('../../_models/Project');
 exports.milestones_get = asyncHandler(async function(req, res, next) {
 
   const { success, count, data } = res.results;
-  const project = await Project.findById(req.params.projectID);
 
   return res
     .status(200)
@@ -20,7 +19,6 @@ exports.milestones_get = asyncHandler(async function(req, res, next) {
       title: `${project.code}: milestones`,
       active: { milestones: true },
       count: count,
-      project: project,
       milestones: data,
 
     });
@@ -35,15 +33,12 @@ exports.milestones_get = asyncHandler(async function(req, res, next) {
 
 exports.milestones_add = asyncHandler(async function(req, res, next) {
 
-  const project = await Milestone.findById(req.params.projectID);
-
   return res
     .status(200)
     .render('pages/milestones/add', {
       success: true,
       title: 'add milestone',
-      active: { milestones_add: true },
-      project
+      active: { milestones_add: true }
     });
 
 });

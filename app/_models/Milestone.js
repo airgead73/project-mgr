@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const MilestoneSchema = new mongoose.Schema({
   title: {
     type: String,
-    maxlength: [100, 'Title should be less than 100 characters.'],
+    maxlength: [500, 'Title should be less than 500 characters.'],
     required: [true, 'Add title.'],
   },
   date: {

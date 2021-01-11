@@ -12,8 +12,6 @@ const Project = require('../../_models/Project');
 exports.photos_get = asyncHandler(async function(req, res, next) {
 
   const { success, count, data } = res.results;
-  const project = await Project.findById(req.params.projectID);
-  const chapter = await Chapter.findById(req.params.chapterID);
 
   return res
     .status(200)
@@ -22,8 +20,6 @@ exports.photos_get = asyncHandler(async function(req, res, next) {
       title: `Ch ${chapter.number}: photos`,
       active: { chapters: true },
       count: count,
-      project: project,
-      chapter: chapter,
       photos: data,
 
     });
@@ -38,18 +34,13 @@ exports.photos_get = asyncHandler(async function(req, res, next) {
 
 exports.photos_add = asyncHandler(async function(req, res, next) {
 
-  const project = await Project.findById(req.params.projectID);
-  const chapter = await Chapter.findById(req.params.chapterID);
-
   return res
     .status(200)
     .render('pages/photos/add', {
       success: true,
       title: 'add photo',
-      active: { chapters_add: true },
-      project,
-      chapter
-    });
+      active: { chapters_add: true }
+   });
 
 });
 
