@@ -1,0 +1,44 @@
+<header class="row mt-3" id="main__header">
+  <section class="col-md-6">
+    <h1 class="h4">{{current_project.code}}</h1>
+  </section>
+  <section class="col-md-6 d-flex justify-content-end ">
+    <h2 class="h3">{{current_project.title}}</h2>
+  </section>
+</header>
+
+<section class="row mt-5" id="main_content">
+  <form method="POST" action="/api/projects/{{current_project._id}}/milestones" enctype="application/json"
+    target="/projects/{{current_project._id}}" class="col-lg-6 offset-lg-3 card" id="form_add_photo"
+    autocomplete="off">
+    <header class="card-header row bg-dark text-white">
+      <div class="col-md-6">
+        <h2 class="h3">add milestone</h2>
+      </div>
+      <div class="col-md-6 text-end">
+        <a href="/projects/{{current_project.id}}">back to project</a>
+      </div>
+    </header>
+    <main class="card-body row">
+      <div class="col-md-12 alert alert-warning alert-dismissible fade show" role="alert" data-message="container">
+        <p data-message="text"></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="date" class="form-label">date</label>
+        <input type="date" class="form-control" name="date" id="date">
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="title" class="form-label">title</label>
+        <input type="text" class="form-control" name="title" id="title">
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="notes" class="form-label">notes</label>
+        <textarea type="text" class="form-control" name="notes" id="notes" rows="5"></textarea>
+      </div>
+    </main>
+    <footer class="card-footer row bg-dark">
+      <button type="submit" class="btn btn-outline-light mt-2 mb-2">submit</button>
+    </footer>
+  </form>
+</section>
