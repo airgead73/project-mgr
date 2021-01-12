@@ -1,6 +1,5 @@
 const asyncHandler = require('../middleware/handleAsync');
 const Milestone = require('../../_models/Milestone');
-const Project = require('../../_models/Project');
 
  /**
  * @route   GET /
