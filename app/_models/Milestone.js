@@ -10,6 +10,13 @@ const MilestoneSchema = new mongoose.Schema({
     type: Date,
     required: [true, 'Add date.'],
   },
+  date_completed: {
+    type: Date
+  },
+  status: {
+    type: String,
+    default: 'active'
+  },
   project: {
     type: mongoose.Schema.ObjectId,
     ref: 'Project',

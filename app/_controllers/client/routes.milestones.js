@@ -14,6 +14,10 @@ const {
 
 // middleware
 const handleQuery = require('../middleware/handleQuery');
+const getProject = require('../middleware/getProject');
+const getChapter = require('../middleware/getChapter');
+
+milestonesRouter.get('*', getProject, getChapter);
 
 // options
 const populate = [{ path: 'milestones', select: 'number title' }];
@@ -32,9 +36,7 @@ milestonesRouter
 
 milestonesRouter
   .route('/:milestoneID')
-  .get(milestones_detail);  
-
-  
+  .get(milestones_detail);    
 
 
 module.exports = {

@@ -12,12 +12,13 @@ const Project = require('../../_models/Project');
 exports.photos_get = asyncHandler(async function(req, res, next) {
 
   const { success, count, data } = res.results;
+  const { number } = res.locals.current_chapter
 
   return res
     .status(200)
     .render('pages/photos/index', {
       success: success,
-      title: `Ch ${chapter.number}: photos`,
+      title: `Ch ${number}: photos`,
       active: { chapters: true },
       count: count,
       photos: data,

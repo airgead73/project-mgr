@@ -11,12 +11,13 @@ const Project = require('../../_models/Project');
 exports.milestones_get = asyncHandler(async function(req, res, next) {
 
   const { success, count, data } = res.results;
+  const { code } = res.locals.current_project;
 
   return res
     .status(200)
     .render('pages/milestones/index', {
       success: success,
-      title: `${project.code}: milestones`,
+      title: `${code}: milestones`,
       active: { milestones: true },
       count: count,
       milestones: data,
