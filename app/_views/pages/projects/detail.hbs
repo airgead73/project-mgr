@@ -19,4 +19,26 @@
       </div>
     </div>
   </div>
+  <div class="col-md-12">
+    <h2 class="h4 text-center mt-2">milestones</h2>
+    <table class="table mt-2">
+      <thead>
+        <th scope="th">date</th>
+        <th scope="th">title</th>
+        <th scope="th">notes</th>
+        <th scope="th">status</th>
+      </thead>
+      <tbody>
+        {{#each project.milestones}}
+        <tr>
+          <td>{{formatDate this.date 'MM-DD-YY'}}</td>
+          <td>{{this.title}}</td>
+          <td>{{this.notes}}</td>
+          <td>{{this.status}}</td>
+        </tr>
+
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 </section>
