@@ -1,7 +1,5 @@
 const { Router } = require('express');
 const projectsRouter = Router();
-const { chaptersRouter } = require('./routes.chapters');
-const { milestonesRouter } = require('./routes.milestones');
 const Project = require('../../_models/Project');
 
 // controllers
@@ -25,8 +23,13 @@ const populate = [
 ]
 
 // nested routes
+const { chaptersRouter } = require('./routes.chapters');
+const { milestonesRouter } = require('./routes.milestones');
+const { tasksRouter } = require('./routes.tasks');
+
 projectsRouter.use('/:projectID/chapters', chaptersRouter);
 projectsRouter.use('/:projectID/milestones', milestonesRouter);
+projectsRouter.use('/:projectID/tasks', tasksRouter);
 
 // routes
 projectsRouter

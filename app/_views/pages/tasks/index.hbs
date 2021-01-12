@@ -1,6 +1,6 @@
 <header class="row mt-3" id="main__header">
   <section class="col-md-6">
-    <a href="/projects/{{current_project._id}}/milestones/add" class="btn btn-dark btn-sm" title="add chapter">new milestone +</a>
+    <a href="/projects/{{current_project._id}}/tasks/add" class="btn btn-dark btn-sm" title="add chapter">new task +</a>
   </section>
   <section class="col-md-6 d-flex justify-content-end ">
     <h1 class="h5">{{title}}</h1>
@@ -14,20 +14,20 @@
       <th scope="col">date</th>
       <th scope="col">title</th>
       <th scope="col" colspan="2">notes</th>
-      <th scope="col">status</th>
+      <th scope="col">hours</th>
     </tr>
   </thead>
   <tbody>
-  {{#each milestones}}
+  {{#each tasks}}
     <tr>
       <td scope="row">{{formatDate this.date 'MM-DD-YY'}}</td>
       <td>
-        <a href="/projects/{{current_project._id}}/chapters/{{this._id}}" class="card-link">{{this.title}}</a>        
+        <a href="/projects/{{current_project._id}}/tasks/{{this._id}}" class="card-link">{{this.title}}</a>        
       </td>
       <td>{{this.notes}}</td>
-      <td>{{this.status}}</td>
+      <td>{{this.hours}}</td>
       <td>        
-        <a href="/milestones/update/{{this._id}}" class="card-link">update</a>
+        <a href="/tasks/update/{{this._id}}" class="card-link">update</a>
         <button class="btn btn-link card-link" data-delete="items" data-target="{{this._id}}">delete</button>
       </td>
     </tr>

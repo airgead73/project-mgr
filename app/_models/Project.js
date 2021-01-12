@@ -49,4 +49,11 @@ ProjectSchema.virtual('milestones', {
   justOne: false
 });
 
+ProjectSchema.virtual('tasks', {
+  ref: 'Task',
+  localField: '_id',
+  foreignField: 'project',
+  justOne: false
+});
+
 module.exports = mongoose.model('Project', ProjectSchema);

@@ -8,12 +8,12 @@
 </header>
 
 <section class="row mt-5" id="main_content">
-  <form method="POST" action="/api/projects/{{current_project._id}}/milestones" enctype="application/json"
-    target="/projects/{{current_project._id}}" class="col-lg-6 offset-lg-3 card" id="form_add_photo"
+  <form method="POST" action="/api/projects/{{current_project._id}}/tasks" enctype="application/json"
+    target="/projects/{{current_project._id}}" class="col-lg-6 offset-lg-3 card" id="form_add_task"
     autocomplete="off">
     <header class="card-header row bg-dark text-white">
       <div class="col-md-6">
-        <h2 class="h3">add milestone</h2>
+        <h2 class="h3">add task</h2>
       </div>
       <div class="col-md-6 text-end">
         <a href="/projects/{{current_project.id}}">back to project</a>
@@ -28,6 +28,10 @@
         <label for="date" class="form-label">date</label>
         <input type="date" class="form-control" name="date" id="date">
       </div>
+      <div class="col-md-12 mb-3">
+        <label for="hours" class="form-label">hours</label>
+        <input type="number" class="form-control" name="hours" id="hours">
+      </div>      
       <div class="col-md-12 mb-3">
         <label for="title" class="form-label">title</label>
         <input type="text" class="form-control" name="title" id="title">

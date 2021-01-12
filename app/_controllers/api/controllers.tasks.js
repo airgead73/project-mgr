@@ -21,7 +21,7 @@ exports.create = asyncHandler(async function(req, res, next) {
     .status(200)
     .json({ 
       success: true, 
-      msg: `task ${task.number} added.`,
+      msg: 'New task added.',
       task
     });
 
