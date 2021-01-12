@@ -20,7 +20,7 @@
   <tbody>
   {{#each milestones}}
     <tr>
-      <td scope="row">{{this.date}}</td>
+      <td scope="row">{{formatDate this.date 'MM-DD-YY'}}</td>
       <td>
         <a href="/projects/{{current_project._id}}/chapters/{{this._id}}" class="card-link">{{this.title}}</a>        
       </td>
