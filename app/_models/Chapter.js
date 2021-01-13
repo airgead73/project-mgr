@@ -20,6 +20,25 @@ const ChapterSchema = new mongoose.Schema({
     type: String,
     maxlength: [500, 'Description should be less than 500 characters.']
   }
+}, {
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
+});
+
+// Reverse populate with virtuals
+
+ChapterSchema.virtual('photos', {
+  ref: 'Photo',
+  localField: '_id',
+  foreignField: 'chapter',
+  justOne: false
+});
+
+ChapterSchema.virtual('figures', {
+  ref: 'Figure',
+  localField: '_id',
+  foreignField: 'chapter',
+  justOne: false
 });
 
 module.exports = mongoose.model('Chapter', ChapterSchema);

@@ -15,9 +15,6 @@ const {
 // middleware
 const handleQuery = require('../middleware/handleQuery');
 const getProject = require('../middleware/getProject');
-//const getChapter = require('../middleware/getChapter');
-
-//projectsRouter.get('*', getProject);
 
 // populate options
 const populate = [
