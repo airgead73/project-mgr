@@ -27602,6 +27602,39 @@ readers do not read off random characters that represent icons */
   font-weight: 900;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 9%;
+  min-width: 175px;
+}
+
+#header h1, #header .h1 {
+  margin: 0;
+  padding: 8px 0;
+  background-color: #202020;
+}
+
+#nav {
+  border: 1px solid green;
+}
+
+#main {
+  border: 1px solid blue;
+  margin-left: 9%;
+  padding-left: 4.5%;
+}
+
+#footer {
+  border: 1px solid purple;
+}
+
 form {
   height: 100%;
 }
@@ -27623,24 +27656,6 @@ form {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-}
-
-#nav {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 9%;
-  min-width: 200px;
-}
-
-.container--main,
-.container--header {
-  margin-left: 18%;
-}
-
-.navbrand {
-  text-decoration: none;
 }
 
 .dot {
