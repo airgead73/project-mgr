@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-$mainPadding: 9%;
+$mainPadding: 125px;
 
 #header {
   position: fixed;
@@ -12,7 +12,6 @@ $mainPadding: 9%;
   bottom: 0;
   left: 0;
   width: $mainPadding;
-  min-width: 175px;
   h1 {
     margin: 0;
     padding: 8px 0;
@@ -21,17 +20,30 @@ $mainPadding: 9%;
 }
 
 #nav {
-  border: 1px solid green;
+  a {
+    color: white;
+  }
+  &__current {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+  }
 }
 
 #main {
-  border: 1px solid blue;
   margin-left: $mainPadding;
   padding-left: $mainPadding/2;
+  &__header {
+    border: 1px solid blue;
+  }
 }
 
+// NAVIGATION
+
+
+
 #footer {
-  border: 1px solid purple
+  margin-left: $mainPadding;
+  padding-left: $mainPadding/2;  
 }
 
 // FORMS
