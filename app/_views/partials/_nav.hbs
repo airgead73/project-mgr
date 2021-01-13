@@ -1,7 +1,35 @@
-<nav id="nav" class="bg-light">
-  <header class="nav__header mt-2 text-center">
-    navigation
-  </header> 
-</nav>
+    <nav class="nav--main" id="nav">
+      <ul class="nav flex-column" id="nav__list">
+      {{#if current_project}}
+
+        <li class="nav-item text-center" id="nav__current">
+          <a class="nav-link" href="/projects/{{current_project._id}}">{{current_project.code}}</a>
+        </li>
+
+        {{#each current_project.chapters}}
+          <li class="nav-item text-end">
+            <a class="nav-link" href="/projects/{{this.project}}/chapters/{{this._id}}">chapter {{this.number}}</a>
+          </li>
+        {{/each}}
+
+        {{else}}
+
+        <li class="nav-item text-center">
+          <a class="nav-link" href="/projects">projects</a>
+        </li> 
+        <li class="nav-item text-center">
+          <a class="nav-link" href="/milestones">milestones</a>
+        </li>  
+        <li class="nav-item text-center">
+          <a class="nav-link" href="/photos">photos</a>
+        </li> 
+        <li class="nav-item text-center">
+          <a class="nav-link" href="/figures">figures</a>
+        </li>
+
+      {{/if}}
+      
+      </ul>
+    </nav>
 
 

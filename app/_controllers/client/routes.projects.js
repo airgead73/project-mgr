@@ -14,6 +14,10 @@ const {
 
 // middleware
 const handleQuery = require('../middleware/handleQuery');
+const getProject = require('../middleware/getProject');
+//const getChapter = require('../middleware/getChapter');
+
+//projectsRouter.get('*', getProject);
 
 // populate options
 const populate = [
@@ -47,7 +51,7 @@ projectsRouter
 
 projectsRouter
   .route('/:projectID')
-  .get(projects_detail);    
+  .get(getProject, projects_detail);    
 
 
 module.exports = {
