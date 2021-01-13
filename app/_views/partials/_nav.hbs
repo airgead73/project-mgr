@@ -1,41 +1,7 @@
 <nav id="nav" class="bg-light">
-  <header class="nav__header mt-2">
-    <h1 class="h5 text-center">
-      <a href="/" class="navbrand">projects</a>
-    </h1>
-  </header>
-  <ul class="nav flex-column">
-    <li class="nav-item">
-      <a class="nav-link{{#if active.projects}} active{{/if}}" {{#if active.projects}}aria-current="page" {{/if}}href="/projects">projects</a>
-    </li>      
-    <li class="nav-item">
-      <a class="nav-link{{#if active.contact}} active{{/if}}" {{#if active.contact}}aria-current="page" {{/if}}href="/contact">contacts</a>
-    </li> 
-    <li class="nav-item">
-      <a class="nav-link{{#if active.about}} active{{/if}}" {{#if active.about}}aria-current="page" {{/if}}href="/about">about</a>
-    </li> 
-    <hr>    
-
-    {{#if current_project}}
-    <li class="nav-item text-center">
-      <a class="nav-link"href="/projects/{{current_project._id}}">{{current_project.code}}</a>
-    </li>  
-    <hr>
-    {{#if current_chapter}}
-    <li class="nav-item text-center">
-      <a class="nav-link"href="/projects/{{current_project._id}}/chapters/{{current_chapter._id}}">ch {{current_chapter.number}}</a>
-    </li> 
-     <hr>
-    {{/if}}     
-    {{#each current_project.chapters}}   
-    <li class="nav-item">
-      <a class="nav-link"href="/projects/{{this.project}}/chapters/{{this._id}}">ch {{this.number}}</a>
-    </li> 
-    {{/each}}    
-     
-    {{/if}}
-  </ul>  
- 
+  <header class="nav__header mt-2 text-center">
+    navigation
+  </header> 
 </nav>
 
 
