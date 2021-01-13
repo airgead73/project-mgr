@@ -1,6 +1,6 @@
 # Express-Starter
 
-## v10 adjust photo and figure behavior
+## v4 refactor styles of landing and nav
 
 ### install
 
