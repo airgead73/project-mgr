@@ -32,9 +32,6 @@ $mainPadding: 125px;
 #main {
   margin-left: $mainPadding;
   padding-left: $mainPadding/2;
-  &__header {
-    border: 1px solid blue;
-  }
 }
 
 // NAVIGATION
