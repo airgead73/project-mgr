@@ -1,3 +1,4 @@
+// FORMS
 form {
   height: 100%;
 }
@@ -20,24 +21,6 @@ form {
   justify-content: center;
   min-height: 100vh;
 
-}
-
-#nav {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 9%;
-  min-width: 200px;
-}
-
-.container--main,
-.container--header {
-  margin-left: 18%;
-}
-
-.navbrand {
-  text-decoration: none;
 }
 
 .dot {
@@ -63,4 +46,3 @@ form {
   height: 100px;
   width: auto;
 }
-

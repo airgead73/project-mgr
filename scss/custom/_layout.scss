@@ -1,0 +1,42 @@
+// LAYOUT
+
+* {
+  box-sizing: border-box;
+}
+
+$mainPadding: 125px;
+
+#header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: $mainPadding;
+  h1 {
+    margin: 0;
+    padding: 8px 0;
+    background-color: mix($dark, black, 95%);
+  }
+}
+
+#nav {
+  a {
+    color: white;
+  }
+  &__current {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+  }
+}
+
+#main {
+  margin-left: $mainPadding;
+  padding-left: $mainPadding/2;
+}
+
+// NAVIGATION
+
+#footer {
+  margin-left: $mainPadding;
+  padding-left: $mainPadding/2;  
+}
