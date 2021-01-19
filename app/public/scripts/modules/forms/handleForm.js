@@ -51,9 +51,7 @@ export default function handleForm(_btns) {
     fetch(url, {
       method: method,
       headers: currentHeaders,
-      //body: JSON.stringify(body)
-      body: body
-     
+      body: body     
     })
       .then(response => response.json())
       .then(data => {
@@ -64,13 +62,14 @@ export default function handleForm(_btns) {
             location.assign(responseRedirect);
           } else if(method === 'POST') {
             form.reset();
+            console.log(data);
             showSuccess(messageContainer, msg);
           }
 
         } else {
 
           console.log(data.messages);
-          showFailure(messageContainer, data.messages);
+          //showFailure(messageContainer, data.messages);
 
         }
         

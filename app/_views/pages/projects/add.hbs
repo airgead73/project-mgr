@@ -1,1 +1,48 @@
-<
+<header class="d-flex justify-content-between  align-items-center" id="main__header">
+  <h1 class="h4">new project</h1>
+  <h2 class="h4"> project manager</h2>
+</header>
+<form 
+  action="/api/projects"
+  method="POST" 
+  enctype="application/json"
+  target="/projects"
+  class="card w-50 m-auto" 
+  id="form"
+>
+  <header class="card-header d-flex justify-content-between align-items-center" id="form__header">
+    <h2 class="h4">add project</h2>
+  </header>
+  <div class="row card-body g-3 align-items-end" id="form__main">
+    <div class="col-md-12 alert alert-warning alert-dismissible fade show" role="alert" data-message="container">
+      <p data-message="text"></p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>    
+    <div class="col-md-10">
+      <label for="title" class="form-label">title</label>
+      <input type="text" class="form-control" name="title" id="title">
+    </div>
+    <div class="col-2">
+      <label for="edition" class="form-label">edition</label>
+      <input type="number" class="form-control" name="edition" id="edition">
+    </div>
+    <div class="col-6">
+      <label for="code" class="form-label">code</label>
+      <input type="text" class="form-control" name="code" id="code">
+    </div>
+    <div class="col-6">
+      <label for="client" class="form-label">client</label>
+      <input type="text" class="form-control" name="client" id="client">
+    </div>
+    <div class="col-12">
+      <label for="desc" class="form-label">description</label>
+      <textarea type="text" class="form-control" name="desc" id="desc" rows="6"></textarea>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <div class="col-md-6 offset-md-3 btn-group">
+      <button type="submit" class="btn btn-primary" id="form__submit">submit <i class="fal fa-plus"></i></button>
+      <button type="reset" class="btn btn-primary" id="form__reset">reset <i class="fal fa-undo"></i></button>
+    </div>
+  </footer>
+</form>
