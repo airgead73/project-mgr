@@ -27320,6 +27320,15 @@ readers do not read off random characters that represent icons */
   padding-left: 62.5px;
 }
 
+#main__header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#main__header h1, #main__header .h1 {
+  color: #325d88;
+}
+
 #footer {
   margin-left: 125px;
   padding-left: 62.5px;

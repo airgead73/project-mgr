@@ -1,41 +1,77 @@
-<section class="row mt-5" id="main_content">
-  <div class="col-md-12">
+<header class="d-flex justify-content-between  align-items-center" id="main__header">
+  <h1 class="h4">{{project.code}}</h1>
+  <a href="/projects/update/{{project._id}}" class="btn btn-primary text-white"><i class="fal fa-pen"></i></a>
+</header>
+
+<section class="row g-3">
+
+  <div class="col-md-5">
     <div class="card mb-3">
-      <div class="card-header d-flex justify-content-between">
-        <h2 class="h4"><span class="badge bg-dark">{{project.code}}</span></h2>
-        <a href="/projects/update/{{project._id}}" class="btn btn-primary text-white">update</a>
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span>{{project.title}}</span>
+        <span>author</span>
       </div>
       <div class="card-body">
-        <h5 class="card-title">{{project.title}} {{#if project.edition}}{{project.edition}}e{{/if}}</h5>
-        <p class="card-text">{{project.desc}}</p>
-
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
       </div>
-      <div class="card-footer text-muted">
-        <a href="/projects/{{project._id}}/milestones" class="card-link">milestones</a>
-        <a href="/projects/{{project._id}}/tasks" class="card-link">tasks</a>
-        <a href="/projects/{{project._id}}/chapters" class="card-link">chapters</a>
+      <div class="card-footer text-muted d-flex justify-content-center">
       </div>
     </div>
   </div>
-  <div class="col-md-12">
-    <h2 class="h4 text-center mt-2">milestones</h2>
-    <table class="table mt-2">
-      <thead>
-        <th scope="th">date</th>
-        <th scope="th">title</th>
-        <th scope="th">notes</th>
-        <th scope="th">status</th>
-      </thead>
-      <tbody>
-        {{#each project.milestones}}
-        <tr>
-          <td>{{formatDate this.date 'MM-DD-YY'}}</td>
-          <td>{{this.title}}</td>
-          <td>{{this.notes}}</td>
-          <td>{{this.status}}</td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-header d-flex justify-content-center">
+        <ul class="nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="pills-milestones-tab" data-bs-toggle="pill" href="#pills-milestones"
+              role="tab" aria-controls="pills-milestones" aria-selected="true">milestones</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-tasks-tab" data-bs-toggle="pill" href="#pills-tasks" role="tab"
+              aria-controls="pills-tasks" aria-selected="false">tasks</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-diary-tab" data-bs-toggle="pill" href="#pills-diary" role="tab"
+              aria-controls="pills-diary" aria-selected="false">diary</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-milestones" role="tabpanel"
+            aria-labelledby="pills-milestones-tab">
+            <header class="tab-pane-header">
+              <a href="/projects/{{project._id}}/milestones/add" style="text-decoration: none;">new milestone <i
+                  class="fal fa-plus fa-sm"></i></a>
+            </header>
+            <table class="table table-striped mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">date</th>
+                  <th scope="col">title</th>
+                  <th scope="col">notes</th>
+                  <th scope="col">status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each project.milestones}}
+                <tr>
+                  <td>{{formatDate this.date 'MM-DD-YY'}}</td>
+                  <td>{{this.title}}</td>
+                  <td>{{this.notes}}</td>
+                  <td>{{this.status}}</td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+
+          </div>
+          <div class="tab-pane fade show" id="pills-tasks" role="tabpanel" aria-labelledby="pills-tasks-tab">tasks</div>
+          <div class="tab-pane fade show" id="pills-diary" role="tabpanel" aria-labelledby="pills-diary-tab">diary</div>
+        </div>
+      </div>
+    </div>
   </div>
+
 </section>
