@@ -48,7 +48,7 @@
           data-target="{{this._id}}">
           <i class="far fa-eye"></i>
         </a>
-        <button type="button" class="btn btn-link card-link" data-bs-toggle="modal" data-bs-target="#delete_project" data-bs-id="{{this._id}}" data-bs-title="{{this.title}}">
+        <button type="button" class="btn btn-link card-link" data-bs-toggle="modal" data-bs-target="#delete_project" data-bs-action="/api/projects/{{this._id}}" data-bs-title="{{this.title}}">
           <i class="fas fa-trash-alt"></i>
         </button>
       </div>
@@ -71,7 +71,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">no</button>
-        <form action="">
+        <form           
+          method="DELETE"
+          enctype="application/json"
+          target="/projects"
+        >
           <button type="submit" class="btn btn-primary">yes, delete</button>
         </form>
       </div>
