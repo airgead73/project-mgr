@@ -1,13 +1,10 @@
-export function handleGet() {
-  console.log('GET request');
+const handleGet = function() {
+  console.log(('GET request'));
 }
 
-export function handlePost(_btn) {
-  const form = _btn.form;
-  const contentType = form.getAttribute('enctype');
-  const url = form.getAttribute('action');
-  const responseRedirect = form.getAttribute('target');
-  const messageContainer = form.querySelector('[data-message="container"]'); 
+const handlePost = async function(_form) {
+  const contentType = _form.getAttribute('enctype');
+  const url = _form.getAttribute('action');
 
   // set request headers
   const currentHeaders = new Headers();
@@ -23,7 +20,7 @@ export function handlePost(_btn) {
   let body;
 
   if(contentType === 'application/json') {
-    let formElements = Array.from(form.elements);
+    let formElements = Array.from(_form.elements);
 
     formElements = formElements.filter(el => {
       if(el.hasAttribute('name')) {
@@ -35,51 +32,59 @@ export function handlePost(_btn) {
   
     formElements.forEach(el => {
       const prop = el.getAttribute('name');
-      const value = form[prop].value;
+      const value = _form[prop].value;
       body[prop] = value;
     });
   
   body = JSON.stringify(body);     
    } else if(contentType === 'multipart/form-data') {
-      body = new FormData(form);
+      body = new FormData(_form);
   }  
 
-  // fetch data
-  fetch(url, {
-    method: method,
+  // fetch
+
+  let response = await fetch(url, {
+    method: 'POST',
     headers: currentHeaders,
-    body: body     
-  })
-    .then(response => response.json())
-    .then(data => {
-      const { success, msg } = data;
-      if(success) {
+    body: body   
+  });
 
-        if(method === 'PUT') {
-          location.assign(responseRedirect);
-        } else if(method === 'POST') {
-          form.reset();
-          console.log(data);
-          //showSuccess(messageContainer, msg);
-        }
+  let data = await response.json();
 
-      } else {
-
-        console.log(data.messages);
-        //showFailure(messageContainer, data.messages);
-
-      }
-        
-    });  
+  return data;
 
 
 
 }
 
-export function handlePut() {
+const handlePut = function(_form) {
   console.log('PUT request');
 }
 
-export function handleDelete() {
-  console.log('DELETE request');
+const handleDelete = async function(_form) {
+  const contentType = _form.getAttribute('enctype');
+  const url = _form.getAttribute('action');
+
+  // set request headers
+  const currentHeaders = new Headers();
+
+  if(contentType === 'application/json') {
+    currentHeaders.append('Content-Type', contentType);
+  }
+    
+  currentHeaders.append('Accept', contentType);console.log('DELETE request');
+
+  // fetch
+
+  let response = await fetch(url, {
+    method: 'DELETE',
+    headers: currentHeaders
+  });
+  
+  let data = await response.json();
+  
+  return data;
+
 }
+
+export { handleGet, handlePost, handlePut, handleDelete };

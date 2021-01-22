@@ -42,25 +42,35 @@
           <div class="tab-pane fade show active" id="pills-milestones" role="tabpanel"
             aria-labelledby="pills-milestones-tab">
             <header class="tab-pane-header">
-              <a href="/projects/{{project._id}}/milestones/add" style="text-decoration: none;">new milestone <i
-                  class="fal fa-plus fa-sm"></i></a>
+              <a href="/projects/{{project._id}}/milestones/add">new milestone <i class="fal fa-plus fa-sm"></i></a>
             </header>
             <table class="table table-striped mt-3">
               <thead>
                 <tr>
                   <th scope="col">date</th>
                   <th scope="col">title</th>
-                  <th scope="col">notes</th>
                   <th scope="col">status</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
                 {{#each project.milestones}}
                 <tr>
-                  <td>{{formatDate this.date 'MM-DD-YY'}}</td>
+                  <td>
+                    <a href="/project/{{this.project}}/milestones/{{this._id}}">
+                      {{formatDate this.date 'MM-DD-YY'}}
+                    </a>
+
+                  </td>
                   <td>{{this.title}}</td>
-                  <td>{{this.notes}}</td>
                   <td>{{this.status}}</td>
+                  <td>
+                    <button type="button" class="btn btn-link card-link" data-bs-toggle="modal"
+                      data-bs-target="#delete_modal" data-bs-action="/api/milestones/{{this._id}}"
+                      data-bs-title="{{this.title}}" data-bs-type="milestone">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
                 </tr>
                 {{/each}}
               </tbody>
@@ -75,3 +85,28 @@
   </div>
 
 </section>
+
+<!-- Delete Modal -->
+<div class="modal fade modal--delete" id="delete_modal" tabindex="-1" aria-labelledby="delete_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="delete_label">Delete <span class="delete-type"></span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">no</button>
+        <form           
+          method="DELETE"
+          enctype="application/json"
+          target="/projects"
+        >
+          <button type="submit" formmethod="DELETE" class="btn btn-primary">yes, delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

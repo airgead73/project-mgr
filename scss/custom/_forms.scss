@@ -46,3 +46,7 @@ form {
   height: 100px;
   width: auto;
 }
+
+.modal-backdrop+.modal-backdrop {
+  opacity : 0;
+}

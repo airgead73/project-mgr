@@ -1,21 +1,48 @@
-//import { showSuccess, showFailure } from '../messages/show.js';
+import { showSuccess, showFailure } from '../messages/show.js';
 import { handleGet, handlePost, handlePut, handleDelete} from './handleMethods.js';
 export default function handleForm(_btns) {
 
-  const assignMethodHandler = (_target, _method) => {
+  const handleResponse = (_form, _data) => {
+    const { success, msg } = _data;
+    const method = _form.getAttribute('method');
 
-    switch(_method) {
+    if(method === 'DELETE' && success) {
+
+      return window.location.reload();
+
+    }
+
+    const messageContainer = _form.querySelector('[data-message="container"]') 
+    if(success) {
+   
+      _form.reset();
+      console.log(_data);
+      showSuccess(messageContainer, msg);
+
+      } else {
+
+      console.log(_data.messages);
+      showFailure(messageContainer, _data.messages);
+
+      }    
+  }
+
+  const assignMethodHandler = (_form) => {
+
+    const method = _form.getAttribute('method') || null;
+
+    switch(method) {
       case 'GET':
-        handleGet(_target);
+        handleGet(_form);
         break;
       case 'POST':
-        handlePost(_target);
+        handlePost(_form).then(data => handleResponse(_form, data));
         break; 
       case 'PUT':
-        handlePut(_target);
+        handlePut(_form);
         break;
       case 'DELETE':
-        handleDelete(_target);
+        handleDelete(_form).then(data => handleResponse(_form, data));
         break;
       default:
         console.error('No method available.');
@@ -30,88 +57,11 @@ export default function handleForm(_btns) {
     _btn.addEventListener('click', (e) => {
 
       e.preventDefault();
-      const target = e.target
-      const method = target.getAttribute('formmethod') || null;
-      assignMethodHandler(target, method);
+      const form = (e.target).form;
+      assignMethodHandler(form);
            
     });
 
-  });  
-
-  const handleClick = (_btn) => {
-
-    // get form attributes
-    const form = _btn.form;
-    const contentType = form.getAttribute('enctype');
-    const method = form.getAttribute('method');
-    const url = form.getAttribute('action');
-    const responseRedirect = form.getAttribute('target');
-    const messageContainer = form.querySelector('[data-message="container"]');
-
-    // set request headers
-    const currentHeaders = new Headers();
-
-    if(contentType === 'application/json') {
-      currentHeaders.append('Content-Type', contentType);
-    }
-    
-    currentHeaders.append('Accept', contentType);
-
-    // set request body
-
-    let body;
-
-    if(contentType === 'application/json') {
-      let formElements = Array.from(form.elements);
-
-      formElements = formElements.filter(el => {
-        if(el.hasAttribute('name')) {
-          return el
-        }
-      });
-
-      body = {};
-  
-      formElements.forEach(el => {
-        const prop = el.getAttribute('name');
-        const value = form[prop].value;
-        body[prop] = value;
-      });
-  
-      body = JSON.stringify(body);     
-    } else if(contentType === 'multipart/form-data') {
-      body = new FormData(form);
-    }
-
-    // fetch data
-    fetch(url, {
-      method: method,
-      headers: currentHeaders,
-      body: body     
-    })
-      .then(response => response.json())
-      .then(data => {
-        const { success, msg } = data;
-        if(success) {
-
-          if(method === 'PUT') {
-            location.assign(responseRedirect);
-          } else if(method === 'POST') {
-            form.reset();
-            console.log(data);
-            //showSuccess(messageContainer, msg);
-          }
-
-        } else {
-
-          console.log(data.messages);
-          //showFailure(messageContainer, data.messages);
-
-        }
-        
-      });
-  }
-
-
+  }); 
 
 }
