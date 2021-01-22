@@ -1,7 +1,5 @@
 export function initDelete(_modals) {
 
-  console.log(_modals);
-
   _modals.forEach((_modal) => {
 
     _modal.addEventListener('show.bs.modal', function(event) {
