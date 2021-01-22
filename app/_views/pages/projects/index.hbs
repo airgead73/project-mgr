@@ -23,33 +23,37 @@
         <div class="col-md-7">
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              chapters
+              milestones
               <span class="badge bg-light rounded-pill">
-                <a href="/projects/{{this._id}}/chapters/add"><i class="fas fa-plus"></i></a>
+                <a href="/projects/{{this._id}}/milestones/add"><i class="fas fa-plus"></i></a>
               </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              photos
+              tasks
               <span class="badge bg-light rounded-pill">
-                <a href="/projects/{{this._id}}/photos/add"><i class="fas fa-plus"></i></a>
+                <a href="/projects/{{this._id}}/tasks/add"><i class="fas fa-plus"></i></a>
               </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              figures
+              diary
               <span class="badge bg-light rounded-pill">
-                <a href="/projects/{{this._id}}/figures/add"><i class="fas fa-plus"></i></a>
+                <a href="/projects/{{this._id}}/diary/add"><i class="fas fa-plus"></i></a>
               </span>
             </li>
           </ul>
+        </div>
+        <div class="col-md-12 mt-3">
+          <h5 class="h5"><small>next milestone:</small></h5>
+          <p><small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, animi.</small></p>
         </div>
       </div>
       <div class="card-footer text-muted">
         <a href="/projects/{{this._id}}" class="btn btn-link card-link" data-delete="projects"
           data-target="{{this._id}}">
-          <i class="far fa-eye"></i>
+          <i class="fal fa-info-square fa-lg"></i>
         </a>
         <button type="button" class="btn btn-link card-link" data-bs-toggle="modal" data-bs-target="#delete_project" data-bs-action="/api/projects/{{this._id}}" data-bs-title="{{this.title}}" data-bs-type="project">
-          <i class="fas fa-trash-alt"></i>
+          <i class="fas fa-trash-alt fa-lg"></i>
         </button>
       </div>
     </div>
