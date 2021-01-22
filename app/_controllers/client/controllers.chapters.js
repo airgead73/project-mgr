@@ -56,8 +56,10 @@ exports.chapters_add = asyncHandler(async function(req, res, next) {
 
 exports.chapters_detail = asyncHandler(async function(req, res, next) {
 
-  const chapter = await Chapter.findById(req.params.chapterID);
+  const chapter = await Chapter.findById(req.params.chapterID).populate('photos figures')
   const project = await Project.findById(req.params.projectID);
+
+  console.log("chapter:", chapter);
 
   return res
     .status(200)

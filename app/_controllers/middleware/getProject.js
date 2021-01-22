@@ -10,7 +10,6 @@ const getProject = async (req, res, next) => {
 
   if(projectID) {
     res.locals.current_project = project;
-    console.log("project:", res.locals.current_project);
   } else {
     console.log('no specific project');
   }

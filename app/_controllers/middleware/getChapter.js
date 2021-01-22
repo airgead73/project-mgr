@@ -8,7 +8,6 @@ const getChapter = async (req, res, next) => {
 
   if(chapterID) {
     res.locals.current_chapter = chapter;
-    console.log("chapter:", chapter);
   } else {
     console.log('no specific chapter');
   }

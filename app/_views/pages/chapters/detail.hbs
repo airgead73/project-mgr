@@ -11,10 +11,116 @@
 
       </div>
       <div class="card-footer text-muted">
-        <a href="/projects/{{project._id}}/chapters/{{chapter._id}}/photos?sort=number" class="card-link">photos</a>
-        <a href="/projects/{{project._id}}/chapters/{{chapter._id}}/figures?sort=number" class="card-link">figures</a>
-        <a href="#" class="card-link">features</a>
+        <a href="" class="btn btn-link">milestone <i class="fal fa-plus"></i></a>
+        <a href="" class="btn btn-link">task <i class="fal fa-plus"></i></a>
+        <a href="" class="btn btn-link">diary <i class="fal fa-plus"></i></a>
       </div>
     </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header d-flex justify-content-center">
+        <ul class="nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="pills-photos-tab" data-bs-toggle="pill" href="#pills-photos" role="tab"
+              aria-controls="pills-photos" aria-selected="true">photos</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-figures-tab" data-bs-toggle="pill" href="#pills-figures" role="tab"
+              aria-controls="pills-figures" aria-selected="false">figures</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-tables-tab" data-bs-toggle="pill" href="#pills-tables" role="tab"
+              aria-controls="pills-tables" aria-selected="false">tables</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-media-tab" data-bs-toggle="pill" href="#pills-media" role="tab"
+              aria-controls="pills-media" aria-selected="false">media</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-links-tab" data-bs-toggle="pill" href="#pills-links" role="tab"
+              aria-controls="pills-links" aria-selected="false">links</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-features-tab" data-bs-toggle="pill" href="#pills-features" role="tab"
+              aria-controls="pills-features" aria-selected="false">text features</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-photos" role="tabpanel">
+          <header class="tab-pane-header">
+            <a href="/projects/{{chapter.project}}/chapters/{{chapter._id}}/photos/add">new photo <i
+                class="fal fa-plus fa-sm"></i></a>
+          </header>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col"></th>
+                <th scope="col">caption</th>
+                <th scope="col">vendor</th>
+                <th scope="col">credit</th>
+                <th scope="col" colspan="2">notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each chapter.photos}}
+              <tr>
+                <td scope="row">
+                  <a href="/photos/{{this._id}}" class="card-link">{{this.number_ch}}.{{this.number}}</a>
+                </td>
+                <td>
+                  <img src="{{this.url}}" alt="" class="img-thumbnail">
+                </td>
+                <td>{{this.caption}}</td>
+                <td>{{this.vendor}}</td>
+                <td>{{this.credit}}</td>
+                <td>{{this.notes}}</td>
+                <td class="text-end">
+                  <a href="/photos/update/{{this._id}}" class="card-link">update</a>
+                  <button class="btn btn-link card-link" data-delete="items" data-target="{{this._id}}">delete</button>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane fade show" id="pills-figures" role="tabpanel">
+          <header class="tab-pane-header">
+            <a href="/projects/{{chapter.project}}/chapters/{{chapter._id}}/figures/add">new figure <i
+                class="fal fa-plus fa-sm"></i></a>
+          </header>
+        </div>
+        <div class="tab-pane fade show" id="pills-tables" role="tabpanel">
+          <header class="tab-pane-header">
+            <a href="/projects/{{chapter.project}}/chapters/{{chapter._id}}/tables/add">new table <i
+                class="fal fa-plus fa-sm"></i></a>
+          </header>
+        </div>
+        <div class="tab-pane fade show" id="pills-media" role="tabpanel">
+          <header class="tab-pane-header">
+            <a href="/projects/{{chapter.project}}/chapters/{{chapter._id}}/medias/add">new media <i
+                class="fal fa-plus fa-sm"></i></a>
+          </header>
+        </div>
+        <div class="tab-pane fade show" id="pills-links" role="tabpanel">
+          <header class="tab-pane-header">
+            <a href="/projects/{{chapter.project}}/chapters/{{chapter._id}}/links/add">new link <i
+                class="fal fa-plus fa-sm"></i></a>
+          </header>
+        </div>
+        <div class="tab-pane fade show" id="pills-features" role="tabpanel">
+          <header class="tab-pane-header">
+            <a href="/projects/{{chapter.project}}/chapters/{{chapter._id}}/features/add">new feature <i
+                class="fal fa-plus fa-sm"></i></a>
+          </header>
+        </div>
+
+      </div>
+      <div class="card-footer">footer</div>
+    </div>
+
   </div>
 </section>
